@@ -1,4 +1,6 @@
 using JuliePro.Models.Data;
+using JuliePro_DataAccess.Repository;
+using JuliePro_DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +31,7 @@ namespace JuliePro
       options.UseSqlServer(
         Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace JuliePro_DataAccess.Repository.IRepository
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
+
+
+        void Save();
     }
+
+ 
 }

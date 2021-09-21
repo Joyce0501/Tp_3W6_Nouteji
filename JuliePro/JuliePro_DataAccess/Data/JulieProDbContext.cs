@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using JuliePro_Models.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,7 @@ namespace JuliePro.Models.Data
 
         }
 
+        public DbSet<Speciality> Speciality { get; set; }
+        public DbSet<Trainer> Trainer { get; set; }
     }
 }
