@@ -19,4 +19,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JuliePro_DataAccess\JuliePro_DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
