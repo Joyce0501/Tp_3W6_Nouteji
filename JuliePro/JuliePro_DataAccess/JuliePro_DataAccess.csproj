@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JuliePro_Models\JuliePro_Models.csproj" />
+  </ItemGroup>
+
 </Project>
