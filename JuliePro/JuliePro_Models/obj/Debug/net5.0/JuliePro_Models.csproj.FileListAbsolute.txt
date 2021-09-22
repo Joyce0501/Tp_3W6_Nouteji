@@ -9,3 +9,15 @@ C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.dll
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\ref\JuliePro_Models.dll
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.pdb
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\bin\Debug\net5.0\JuliePro_Models.deps.json
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\bin\Debug\net5.0\JuliePro_Models.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\bin\Debug\net5.0\ref\JuliePro_Models.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\bin\Debug\net5.0\JuliePro_Models.pdb
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.AssemblyInfoInputs.cache
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.AssemblyInfo.cs
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.csproj.CoreCompileInputs.cache
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\ref\JuliePro_Models.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.pdb
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.csproj.AssemblyReference.cache

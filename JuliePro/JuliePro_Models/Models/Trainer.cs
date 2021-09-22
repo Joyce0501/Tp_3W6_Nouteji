@@ -10,6 +10,7 @@ namespace JuliePro_Models.Models
 {
     public class Trainer
     {
+        public int Id;
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
         [StringLength(25, MinimumLength = 10, ErrorMessage = "MinMaxCaractersValidation")]
@@ -24,7 +25,7 @@ namespace JuliePro_Models.Models
         public DataType Email;
 
 
-        [StringLength(40, ErrorMessage = "MaxCaractersValidation")]
+        [MaxLength(40, ErrorMessage = "MaxCaractersValidation")]
         public String Photo;
 
 
@@ -32,6 +33,6 @@ namespace JuliePro_Models.Models
         public int Speciality_Id { get; set; }
         
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Speciality, propriété de navigation
-        public virtual Speciality Speciality { get; set; }
+        public  Speciality Speciality { get; set; }
     }
 }

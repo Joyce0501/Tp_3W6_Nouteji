@@ -1,6 +1,6 @@
 using System;
 
-namespace JuliePro.Models
+namespace JuliePro_Models.Models
 {
     public class ErrorViewModel
     {

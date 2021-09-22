@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace JuliePro.Models.Data
+namespace JuliePro_DataAccess.Data
 {
     public class JulieProDbContext: DbContext
     {

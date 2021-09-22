@@ -9,7 +9,7 @@ namespace JuliePro_Models.Models
 {
     public class Speciality
     {
-
+        [Key]
         public int Id;
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]

@@ -1,4 +1,5 @@
-﻿using JuliePro.Models.Data;
+﻿
+using JuliePro_DataAccess.Data;
 using JuliePro_DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
