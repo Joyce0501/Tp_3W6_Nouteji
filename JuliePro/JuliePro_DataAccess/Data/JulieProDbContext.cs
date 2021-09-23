@@ -16,5 +16,15 @@ namespace JuliePro_DataAccess.Data
 
         public DbSet<Speciality> Speciality { get; set; }
         public DbSet<Trainer> Trainer { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Configuration fluent API
+
+            //composite key
+
+          //  modelBuilder.Entity<AuthorBook>().HasKey(ba => new { ba.Author_Id, ba.Book_Id });
+        }
     }
 }

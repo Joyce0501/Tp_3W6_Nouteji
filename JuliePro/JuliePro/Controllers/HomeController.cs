@@ -1,4 +1,5 @@
-﻿using JuliePro.Models;
+﻿
+using JuliePro_Models.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;

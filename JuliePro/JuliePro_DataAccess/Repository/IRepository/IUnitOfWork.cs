@@ -9,7 +9,8 @@ namespace JuliePro_DataAccess.Repository.IRepository
     public interface IUnitOfWork : IDisposable
     {
 
-
+        ITrainerRepository Trainer { get; }
+        ISpecialityRepository Speciality { get; }
         void Save();
     }
 
