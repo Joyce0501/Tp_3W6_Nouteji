@@ -16,8 +16,15 @@ namespace JuliePro_DataAccess.Repository
         public UnitOfWork(JulieProDbContext db)
         {
             _db = db;
+            Trainer = new TrainerRepository(_db);
+            Speciality = new SpecialityRepository(_db);
         
         }
+
+        public ITrainerRepository Trainer { get; private set; }
+
+        public ISpecialityRepository Speciality { get; private set; }
+
         public void Dispose()
         {
             _db.Dispose();
