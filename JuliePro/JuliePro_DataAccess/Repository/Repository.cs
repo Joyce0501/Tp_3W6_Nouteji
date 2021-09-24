@@ -30,11 +30,48 @@ namespace JuliePro_DataAccess.Repository
             dbset.Add(entity);
         }
 
-        public T Find(int id)
+        public T Get(int id)
         {
             return dbset.Find(id);
         }
+        /* doit tenir compte que certains retournent des VM avec des where et des liens
+      Exemple: IEnumerable<Product> objList = _db.Product.Include(u => u.Category).Include(u => u.ApplicationType);
+   Expression<Func> permet le linq avec filter permet le where
+   IOrderedQueryable... permet le orderby
+   includeProperties permet le lié avec Include
+   isTracking, par défaut dans EF Core, utile mais diminue la performance. Pour Retreive seulement: peut être false
+ */
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null, bool isTracking = true)
+        {
+            IQueryable<T> query = dbset;
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
 
+            if (includeProperties != null)
+            {
+                foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    // reproduit: _db.Product.Include(u => u.Category).Include(u => u.ApplicationType)
+                    // mais passé en string
+                    query = query.Include(includeProp);
+                }
+            }
+
+            if (orderBy != null)
+            {
+                query = orderBy(query);
+            }
+
+            if (!isTracking)
+            {
+                query = query.AsNoTracking();
+            }
+
+            return query.ToList();
+
+        }
         public T FirstOrDefault(Expression<Func<T, bool>> filter = null, string includeProperties = null, bool isTracking = true)
         {
             IQueryable<T> query = dbset;
@@ -61,24 +98,20 @@ namespace JuliePro_DataAccess.Repository
             return query.FirstOrDefault();
         }
 
-        public T Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null, bool isTracking = true)
-        {
-            throw new NotImplementedException();
-        }
+        //public T Get(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void Remove(T entity)
         {
-            throw new NotImplementedException();
+            dbset.Remove(entity);
         }
 
         public void RemoveRange(IEnumerable<T> entity)
         {
-            throw new NotImplementedException();
+            // Supprimer plusieurs lignes en même temps
+            dbset.RemoveRange(entity);
         }
 
         public void Save()

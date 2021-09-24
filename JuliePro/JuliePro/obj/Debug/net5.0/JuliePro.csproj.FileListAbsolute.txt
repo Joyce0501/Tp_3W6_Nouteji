@@ -784,3 +784,15 @@ C:\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.dll
 C:\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\ref\JuliePro.dll
 C:\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.pdb
 C:\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.genruntimeconfig.cache
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.csproj.AssemblyReference.cache
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.AssemblyInfoInputs.cache
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.AssemblyInfo.cs
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.csproj.CoreCompileInputs.cache
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.RazorAssemblyInfo.cache
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.RazorAssemblyInfo.cs
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.dll
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\ref\JuliePro.dll
+C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.pdb
