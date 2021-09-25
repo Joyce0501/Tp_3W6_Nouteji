@@ -11,6 +11,8 @@ namespace JuliePro_DataAccess.Repository.IRepository
 
         ITrainerRepository Trainer { get; }
         ISpecialityRepository Speciality { get; }
+        ICustomerRepository Customer { get; }
+        IObjectiveRepository Objective { get; }
         void Save();
     }
 

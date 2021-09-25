@@ -8414,11 +8414,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joyce\\OneDrive\\Bureau\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_DataAccess\\JuliePro_DataAccess.csproj",
+      "projectUniqueName": "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_DataAccess\\JuliePro_DataAccess.csproj",
       "projectName": "JuliePro_DataAccess",
-      "projectPath": "C:\\Users\\joyce\\OneDrive\\Bureau\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_DataAccess\\JuliePro_DataAccess.csproj",
+      "projectPath": "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_DataAccess\\JuliePro_DataAccess.csproj",
       "packagesPath": "C:\\Users\\joyce\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joyce\\OneDrive\\Bureau\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_DataAccess\\obj\\",
+      "outputPath": "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joyce\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8435,8 +8435,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\joyce\\OneDrive\\Bureau\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj": {
-              "projectPath": "C:\\Users\\joyce\\OneDrive\\Bureau\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj"
+            "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj": {
+              "projectPath": "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj"
             }
           }
         }

@@ -18,12 +18,19 @@ namespace JuliePro_DataAccess.Repository
             _db = db;
             Trainer = new TrainerRepository(_db);
             Speciality = new SpecialityRepository(_db);
-        
+            Customer = new CustomerRepository(_db);
+            Objective = new ObjectiveRepository(_db);
+
         }
 
         public ITrainerRepository Trainer { get; private set; }
 
         public ISpecialityRepository Speciality { get; private set; }
+
+        public IObjectiveRepository Objective { get; private set; }
+
+        public ICustomerRepository Customer { get; private set; }
+
 
         public void Dispose()
         {

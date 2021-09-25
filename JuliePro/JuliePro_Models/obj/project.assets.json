@@ -6548,11 +6548,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joyce\\OneDrive\\Bureau\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj",
+      "projectUniqueName": "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj",
       "projectName": "JuliePro_Models",
-      "projectPath": "C:\\Users\\joyce\\OneDrive\\Bureau\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj",
+      "projectPath": "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj",
       "packagesPath": "C:\\Users\\joyce\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joyce\\OneDrive\\Bureau\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\obj\\",
+      "outputPath": "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joyce\\AppData\\Roaming\\NuGet\\NuGet.Config",

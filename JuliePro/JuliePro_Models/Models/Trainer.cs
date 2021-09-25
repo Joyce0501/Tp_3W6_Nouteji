@@ -36,5 +36,26 @@ namespace JuliePro_Models.Models
         
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Speciality, propriété de navigation
         public  Speciality Speciality { get; set; }
+
+        //OBLIGATOIRE Pour la relation 1 à plusieurs avec Customer
+        public ICollection<Customer> Customers { get; set; }
+
+
+        #region
+         
+        //table intermédiaires pour la relation plusieurs à plusieurs avec Objective
+
+        [ForeignKey("Customer")]
+        public int Customer_Id { get; set; }
+
+        [ForeignKey("Objective")]
+        public int Objective_Id { get; set; }
+
+        public Customer customer { get; set; }
+
+        public Objective objective { get; set; }
+        #endregion
+
+
     }
 }

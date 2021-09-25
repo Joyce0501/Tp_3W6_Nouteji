@@ -33,3 +33,7 @@ C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debu
 C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.dll
 C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\ref\JuliePro_Models.dll
 C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.pdb
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.Resources.Models.Trainer.en.resources
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.Resources.Models.Trainer.fr.resources
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.csproj.GenerateResource.cache
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\en\JuliePro_Models.resources.dll
