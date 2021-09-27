@@ -6543,19 +6543,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joyce\\.nuget\\packages\\": {}
+    "C:\\Users\\1983276\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj",
+      "projectUniqueName": "C:\\Users\\1983276\\Desktop\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj",
       "projectName": "JuliePro_Models",
-      "projectPath": "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj",
-      "packagesPath": "C:\\Users\\joyce\\.nuget\\packages\\",
-      "outputPath": "C:\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\obj\\",
+      "projectPath": "C:\\Users\\1983276\\Desktop\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\JuliePro_Models.csproj",
+      "packagesPath": "C:\\Users\\1983276\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\1983276\\Desktop\\Tp1_3W5_Nouteji\\JuliePro\\JuliePro_Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\joyce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\1983276\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

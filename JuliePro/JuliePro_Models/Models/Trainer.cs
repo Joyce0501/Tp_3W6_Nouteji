@@ -41,20 +41,20 @@ namespace JuliePro_Models.Models
         public ICollection<Customer> Customers { get; set; }
 
 
-        #region
+        //#region
          
         //table intermédiaires pour la relation plusieurs à plusieurs avec Objective
 
-        [ForeignKey("Customer")]
-        public int Customer_Id { get; set; }
+        //[ForeignKey("Customer")]
+        //public int Customer_Id { get; set; }
 
-        [ForeignKey("Objective")]
-        public int Objective_Id { get; set; }
+        //[ForeignKey("Objective")]
+        //public int Objective_Id { get; set; }
 
-        public Customer customer { get; set; }
+        //public Customer customer { get; set; }
 
-        public Objective objective { get; set; }
-        #endregion
+        //public Objective objective { get; set; }
+        //#endregion
 
 
     }

@@ -26,12 +26,16 @@ namespace JuliePro_Models.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
         public DateTime AchievedDate { get; set; }
 
-        //OBLIGATOIRE Pour la relation plusieurs à plusieurs avec Customer
-        public ICollection<Customer> Customers { get; set; }
+        //OBLIGATOIRE Pour la relation 1 à plusieurs avec Customer
 
-        // Propriété de navigation vers Trainer
-        //OBLIGATOIRE Pour la relation 1 à plusieurs avec Trainer
-        public ICollection<Trainer> Trainers { get; set; }
+        [Display(Name = "CustomerId")]
+        [ForeignKey("CustomerId")]
+        public int Customer_Id { get; set; }
+
+        //OBLIGATOIRE Pour la relation 1 à plusieurs avec Trainer, propriété de navigation
+        public Customer Customer { get; set; }
+
+      
 
     }
 }

@@ -42,9 +42,6 @@ namespace JuliePro_Models.Models
         //OBLIGATOIRE Pour la relation plusieurs à plusieurs avec Objective, propriété de navigation
         public ICollection<Objective> Objectives { get; set; }
 
-        // Propriété de navigation vers Trainer
-        //OBLIGATOIRE Pour la relation 1 à plusieurs avec Trainer
-        public ICollection<Trainer> Trainers { get; set; }
-
+      
     }
 }

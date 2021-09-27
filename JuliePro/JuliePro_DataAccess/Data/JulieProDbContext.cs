@@ -23,7 +23,7 @@ namespace JuliePro_DataAccess.Data
         {
 
             // Trainer: clé composée (composite key)
-            modelBuilder.Entity<Trainer>().HasKey(tr => new { tr.Customer_Id, tr.Objective_Id });
+            //modelBuilder.Entity<Trainer>().HasKey(tr => new { tr.Customer_Id, tr.Objective_Id });
 
         }
 
