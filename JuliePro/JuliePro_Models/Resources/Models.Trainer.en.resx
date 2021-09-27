@@ -139,6 +139,6 @@
     <value>Speciality Id</value>
   </data>
   <data name="StringLengthValidation" xml:space="preserve">
-    <value>{0} doit comporter entre {2} et {1} caractères maximum.</value>
+    <value>{0} must have beetween  {2} and {1} maximum caracters.</value>
   </data>
 </root>
