@@ -28,7 +28,7 @@ namespace JuliePro_Models.Models
         public DataType Email { get; set; }
 
         [Display(Name = "Photo")]
-        [MaxLength(40, ErrorMessage = "MaxCaractersValidation")]
+        [MaxLength(40, ErrorMessage = "MaxLengthValidation")]
         public String Photo { get; set; }
 
         [Display(Name = "SpecialityId")]
@@ -43,7 +43,7 @@ namespace JuliePro_Models.Models
 
 
         //#region
-         
+
         //table intermédiaires pour la relation plusieurs à plusieurs avec Objective
 
         //[ForeignKey("Customer")]

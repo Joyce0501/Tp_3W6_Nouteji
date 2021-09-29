@@ -46,9 +46,8 @@ namespace JuliePro_DataAccess.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<double>("StartWeight")
-                        .HasMaxLength(400)
-                        .HasColumnType("float");
+                    b.Property<decimal>("StartWeight")
+                        .HasColumnType("decimal(400,100)");
 
                     b.Property<int?>("TrainerId")
                         .HasColumnType("int");
@@ -71,7 +70,9 @@ namespace JuliePro_DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.HasKey("Id");
 
@@ -94,13 +95,11 @@ namespace JuliePro_DataAccess.Migrations
                     b.Property<int>("Customer_Id")
                         .HasColumnType("int");
 
-                    b.Property<double>("DistanceKm")
-                        .HasMaxLength(45)
-                        .HasColumnType("float");
+                    b.Property<decimal>("DistanceKm")
+                        .HasColumnType("decimal(45,2)");
 
-                    b.Property<double>("LostWeight")
-                        .HasMaxLength(10)
-                        .HasColumnType("float");
+                    b.Property<decimal>("LostWeight")
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -128,7 +127,9 @@ namespace JuliePro_DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<int>("DurationMin")
                         .HasColumnType("int");
@@ -216,10 +217,14 @@ namespace JuliePro_DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.HasKey("Id");
 

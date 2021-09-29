@@ -30,7 +30,7 @@ namespace JuliePro_Models.Models
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
 
-      //  [StringLength(400, MinimumLength = 100, ErrorMessage = "StringLengthValidation")]
+        //  [StringLength(400, MinimumLength = 100, ErrorMessage = "StringLengthValidation")]
         [Range(100, 400, ErrorMessage = "RangeValidation")]
         [Column(TypeName = "decimal(400,100)")]
         public Double StartWeight { get; set; }
@@ -46,6 +46,6 @@ namespace JuliePro_Models.Models
         //OBLIGATOIRE Pour la relation plusieurs à plusieurs avec Objective, propriété de navigation
         public ICollection<Objective> Objectives { get; set; }
 
-      
+
     }
 }

@@ -20,6 +20,10 @@ namespace JuliePro_DataAccess.Repository
             Speciality = new SpecialityRepository(_db);
             Customer = new CustomerRepository(_db);
             Objective = new ObjectiveRepository(_db);
+            Equipment = new EquipmentRepository(_db);
+            ScheduledSession = new ScheduledSessionRepository(_db);
+            Training = new TrainingRepository(_db);
+            TrainingEquipment = new TrainingEquipmentRepository(_db);
 
         }
 
@@ -30,6 +34,14 @@ namespace JuliePro_DataAccess.Repository
         public IObjectiveRepository Objective { get; private set; }
 
         public ICustomerRepository Customer { get; private set; }
+
+        public IEquipmentRepository Equipment { get; private set; }
+
+        public IScheduledSessionRepository ScheduledSession { get; private set; }
+
+        public ITrainingRepository Training { get; private set; }
+
+        public ITrainingEquipmentRepository TrainingEquipment { get; private set; }
 
 
         public void Dispose()

@@ -34,10 +34,10 @@ namespace JuliePro.Controllers
         //}
 
         // GET: TrainerController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
         // GET: TrainerController/Create
         public ActionResult Create()
@@ -48,58 +48,69 @@ namespace JuliePro.Controllers
         // POST: TrainerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(/*IFormCollection collection*/Trainer trainer)
         {
-            try
+            //try
+            //{
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
+            if (ModelState.IsValid)
             {
+                // Ajouter à la BD
+                _unitOfWork.Trainer.Add(trainer);
+
+                _unitOfWork.Save();
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: TrainerController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: TrainerController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: TrainerController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: TrainerController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return this.View(trainer);
         }
     }
+
+    // GET: TrainerController/Edit/5
+    //public ActionResult Edit(int id)
+    //{
+    //    return View();
+    //}
+
+    //// POST: TrainerController/Edit/5
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public ActionResult Edit(int id, IFormCollection collection)
+    //{
+    //    try
+    //    {
+    //        return RedirectToAction(nameof(Index));
+    //    }
+    //    catch
+    //    {
+    //        return View();
+    //    }
+    //}
+
+    //// GET: TrainerController/Delete/5
+    //public ActionResult Delete(int id)
+    //{
+    //    return View();
+    //}
+
+    //// POST: TrainerController/Delete/5
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public ActionResult Delete(int id, IFormCollection collection)
+    //{
+    //    try
+    //    {
+    //        return RedirectToAction(nameof(Index));
+    //    }
+    //    catch
+    //    {
+    //        return View();
+    //    }
+    //}
 }
+
+

@@ -126,7 +126,7 @@
   <data name="Last Name" xml:space="preserve">
     <value>Last Name</value>
   </data>
-  <data name="MaxCaractersValidation" xml:space="preserve">
+  <data name="MaxLengthValidation" xml:space="preserve">
     <value>{0} can have {1} characters maximum.</value>
   </data>
   <data name="Photo" xml:space="preserve">

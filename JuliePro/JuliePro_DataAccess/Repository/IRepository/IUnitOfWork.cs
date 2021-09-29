@@ -13,6 +13,12 @@ namespace JuliePro_DataAccess.Repository.IRepository
         ISpecialityRepository Speciality { get; }
         ICustomerRepository Customer { get; }
         IObjectiveRepository Objective { get; }
+
+        IEquipmentRepository Equipment { get; }
+        IScheduledSessionRepository ScheduledSession { get; }
+        ITrainingRepository Training { get; }
+        ITrainingEquipmentRepository TrainingEquipment { get; }
+
         void Save();
     }
 

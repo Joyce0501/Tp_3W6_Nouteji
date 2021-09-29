@@ -10,7 +10,6 @@ namespace JuliePro_Models.Models
 {
     public class Objective
     {
-
         public int Id { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
@@ -36,10 +35,11 @@ namespace JuliePro_Models.Models
         [ForeignKey("CustomerId")]
         public int Customer_Id { get; set; }
 
-        //OBLIGATOIRE Pour la relation 1 à plusieurs avec Trainer, propriété de navigation
+        //OBLIGATOIRE Pour la relation 1 à plusieurs avec Customer, propriété de navigation
         public Customer Customer { get; set; }
 
-      
+
 
     }
 }
+

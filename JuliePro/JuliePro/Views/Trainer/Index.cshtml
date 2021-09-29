@@ -1,0 +1,60 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+@model IEnumerable<JuliePro_Models.Models.Trainer>
+<br />
+<br />
+<div class="border p-4 bg-white">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="text-info">The trainers</h2>
+        </div>
+        <div class=" col-2 text-right">
+            <a asp-action="" class="btn btn-info form-control"> Add a trainer </a>
+        </div>
+    </div>
+    <br />
+    <div>
+
+
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Speciality</th>
+                <th></th>
+            </tr>
+            @*Début de la liste *@
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.LastName)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Email)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Speciality)
+            </td>
+            @foreach (var item in Model)
+            {
+
+                <td>
+                    <a class="btn btn-primary text-white" asp-action="" asp-route-Id="@item.Id">
+                        Edit
+                    </a>
+                    <a class="btn btn-info text-white" asp-action="" asp-route-Id="@item.Id">
+                        Details
+                    </a>
+                    <a class="btn btn-danger text-white" asp-action="" asp-route-Id="@item.Id">
+                        Delete
+                    </a>
+
+                </td>
+            }
+        </tr>
+            @*Fin de la liste *@
+        </table>
+    </div>
+</div>

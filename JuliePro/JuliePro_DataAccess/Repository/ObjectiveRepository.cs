@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JuliePro_DataAccess.Repository
 {
-    public class ObjectiveRepository : Repository<Objective>,IObjectiveRepository
+    public class ObjectiveRepository : Repository<Objective>, IObjectiveRepository
     {
         private readonly JulieProDbContext _db;
 
