@@ -19,11 +19,20 @@ namespace JuliePro_DataAccess.Data
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Objective> Objective { get; set; }
 
+        public DbSet<ScheduledSession> ScheduledSession { get; set; }
+
+        public DbSet<Training> Training{ get; set; }
+
+        public DbSet<Equipment> Equipment { get; set; }
+
+        public DbSet<TrainingEquipment> TrainingEquipment { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //TrainingEquipment : clé composée (composite key)
+            modelBuilder.Entity<TrainingEquipment>()
+            .HasKey(te => new { te.Training_Id, te.Equipment_Id });
 
-            // Trainer: clé composée (composite key)
-            //modelBuilder.Entity<Trainer>().HasKey(tr => new { tr.Customer_Id, tr.Objective_Id });
 
         }
 

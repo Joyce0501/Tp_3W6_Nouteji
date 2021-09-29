@@ -22,9 +22,9 @@ namespace JuliePro.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<Trainer> objList = _unitOfWork.Trainer.GetAll(includeProperties: "Speciality");
+            IEnumerable<Trainer> TrainerList = _unitOfWork.Trainer.GetAll();
 
-            return View(objList);
+            return View(TrainerList);
         }
 
         // GET: TrainerController

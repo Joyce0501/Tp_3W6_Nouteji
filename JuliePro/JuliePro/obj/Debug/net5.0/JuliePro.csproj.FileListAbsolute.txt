@@ -798,3 +798,5 @@ C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.
 C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\JuliePro.pdb
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro\bin\Debug\net5.0\en\JuliePro_Models.resources.dll
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro\bin\Debug\net5.0\fr\JuliePro_Models.resources.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro\bin\Debug\net5.0\en\JuliePro_Models.resources.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro\bin\Debug\net5.0\fr\JuliePro_Models.resources.dll

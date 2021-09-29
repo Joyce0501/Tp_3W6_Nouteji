@@ -45,3 +45,6 @@ C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\JuliePro_Models.csproj.GenerateResource.cache
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\en\JuliePro_Models.resources.dll
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\fr\JuliePro_Models.resources.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\bin\Debug\net5.0\en\JuliePro_Models.resources.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\bin\Debug\net5.0\fr\JuliePro_Models.resources.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_Models\obj\Debug\net5.0\fr\JuliePro_Models.resources.dll

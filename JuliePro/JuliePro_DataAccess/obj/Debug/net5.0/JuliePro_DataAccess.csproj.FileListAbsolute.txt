@@ -54,3 +54,5 @@ C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro_DataAccess\obj\
 C:\Users\joyce\OneDrive\Bureau\Tp1_3W5_Nouteji\JuliePro\JuliePro_DataAccess\obj\Debug\net5.0\JuliePro_DataAccess.genruntimeconfig.cache
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro_DataAccess\bin\Debug\net5.0\en\JuliePro_Models.resources.dll
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro_DataAccess\bin\Debug\net5.0\fr\JuliePro_Models.resources.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_DataAccess\bin\Debug\net5.0\en\JuliePro_Models.resources.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro_DataAccess\bin\Debug\net5.0\fr\JuliePro_Models.resources.dll

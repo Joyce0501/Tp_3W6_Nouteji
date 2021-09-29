@@ -63,6 +63,21 @@ namespace JuliePro_DataAccess.Migrations
                     b.ToTable("Customer");
                 });
 
+            modelBuilder.Entity("JuliePro_Models.Models.Equipment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Equipment");
+                });
+
             modelBuilder.Entity("JuliePro_Models.Models.Objective", b =>
                 {
                     b.Property<int>("Id")
@@ -97,6 +112,46 @@ namespace JuliePro_DataAccess.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Objective");
+                });
+
+            modelBuilder.Entity("JuliePro_Models.Models.ScheduledSession", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Complete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DurationMin")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TrainingId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TrainingId1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Training_Id")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("WithTrainer")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrainingId");
+
+                    b.HasIndex("TrainingId1");
+
+                    b.ToTable("ScheduledSession");
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.Speciality", b =>
@@ -153,6 +208,39 @@ namespace JuliePro_DataAccess.Migrations
                     b.ToTable("Trainer");
                 });
 
+            modelBuilder.Entity("JuliePro_Models.Models.Training", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Training");
+                });
+
+            modelBuilder.Entity("JuliePro_Models.Models.TrainingEquipment", b =>
+                {
+                    b.Property<int>("Training_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Equipment_Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("Training_Id", "Equipment_Id");
+
+                    b.HasIndex("Equipment_Id");
+
+                    b.ToTable("TrainingEquipment");
+                });
+
             modelBuilder.Entity("JuliePro_Models.Models.Customer", b =>
                 {
                     b.HasOne("JuliePro_Models.Models.Trainer", "Trainer")
@@ -171,6 +259,19 @@ namespace JuliePro_DataAccess.Migrations
                     b.Navigation("Customer");
                 });
 
+            modelBuilder.Entity("JuliePro_Models.Models.ScheduledSession", b =>
+                {
+                    b.HasOne("JuliePro_Models.Models.Trainer", "Training")
+                        .WithMany()
+                        .HasForeignKey("TrainingId");
+
+                    b.HasOne("JuliePro_Models.Models.Training", null)
+                        .WithMany("ScheduledSessions")
+                        .HasForeignKey("TrainingId1");
+
+                    b.Navigation("Training");
+                });
+
             modelBuilder.Entity("JuliePro_Models.Models.Trainer", b =>
                 {
                     b.HasOne("JuliePro_Models.Models.Speciality", "Speciality")
@@ -180,9 +281,33 @@ namespace JuliePro_DataAccess.Migrations
                     b.Navigation("Speciality");
                 });
 
+            modelBuilder.Entity("JuliePro_Models.Models.TrainingEquipment", b =>
+                {
+                    b.HasOne("JuliePro_Models.Models.Equipment", "Equipment")
+                        .WithMany("TrainingEquipments")
+                        .HasForeignKey("Equipment_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JuliePro_Models.Models.Training", "Training")
+                        .WithMany("TrainingEquipments")
+                        .HasForeignKey("Training_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Equipment");
+
+                    b.Navigation("Training");
+                });
+
             modelBuilder.Entity("JuliePro_Models.Models.Customer", b =>
                 {
                     b.Navigation("Objectives");
+                });
+
+            modelBuilder.Entity("JuliePro_Models.Models.Equipment", b =>
+                {
+                    b.Navigation("TrainingEquipments");
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.Speciality", b =>
@@ -193,6 +318,13 @@ namespace JuliePro_DataAccess.Migrations
             modelBuilder.Entity("JuliePro_Models.Models.Trainer", b =>
                 {
                     b.Navigation("Customers");
+                });
+
+            modelBuilder.Entity("JuliePro_Models.Models.Training", b =>
+                {
+                    b.Navigation("ScheduledSessions");
+
+                    b.Navigation("TrainingEquipments");
                 });
 #pragma warning restore 612, 618
         }
