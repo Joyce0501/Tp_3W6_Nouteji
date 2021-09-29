@@ -23,6 +23,7 @@ namespace JuliePro_Models.Models
         public String LastName { get; set; }
 
         [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)] //Mettre aussi le type de input
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
         public DataType Email { get; set; }
 

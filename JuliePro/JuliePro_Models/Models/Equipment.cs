@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,9 @@ namespace JuliePro_Models.Models
     {
         public int Id { get; set; }
 
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
+        [StringLength(15, MinimumLength = 5, ErrorMessage = "StringLengthValidation")]
         public String Name { get; set; }
 
 

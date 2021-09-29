@@ -17,12 +17,16 @@ namespace JuliePro_Models.Models
         [StringLength(15, MinimumLength = 5, ErrorMessage = "MinMaxCaractersValidation")]
         public String Name { get; set; }
 
-        [StringLength(10, MinimumLength = 2, ErrorMessage = "StringLengthValidation")]
+
+        [Range(2, 10, ErrorMessage = "RangeValidation")]
+        [Column(TypeName = "decimal(10,2)")]
         public Double LostWeight { get; set; }
 
-        [StringLength(45, MinimumLength = 2, ErrorMessage = "StringLengthValidation")]
+        [Range(2, 45, ErrorMessage = "RangeValidation")]
+        [Column(TypeName = "decimal(45,2)")]
         public Double DistanceKm { get; set; }
 
+        [DataType(DataType.Date)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
         public DateTime AchievedDate { get; set; }
 
