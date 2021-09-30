@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JuliePro_DataAccess.Migrations
 {
     [DbContext(typeof(JulieProDbContext))]
-    [Migration("20210929174606_CustOb")]
-    partial class CustOb
+    [Migration("20210930001449_CustSession")]
+    partial class CustSession
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,8 +48,8 @@ namespace JuliePro_DataAccess.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<decimal>("StartWeight")
-                        .HasColumnType("decimal(400,100)");
+                    b.Property<double>("StartWeight")
+                        .HasColumnType("float");
 
                     b.Property<int?>("TrainerId")
                         .HasColumnType("int");
@@ -97,11 +97,11 @@ namespace JuliePro_DataAccess.Migrations
                     b.Property<int>("Customer_Id")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("DistanceKm")
-                        .HasColumnType("decimal(45,2)");
+                    b.Property<double>("DistanceKm")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("LostWeight")
-                        .HasColumnType("decimal(10,2)");
+                    b.Property<double>("LostWeight")
+                        .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -124,6 +124,12 @@ namespace JuliePro_DataAccess.Migrations
 
                     b.Property<bool>("Complete")
                         .HasColumnType("bit");
+
+                    b.Property<int?>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Customer_Id")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -149,6 +155,8 @@ namespace JuliePro_DataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
 
                     b.HasIndex("TrainingId");
 
@@ -268,6 +276,10 @@ namespace JuliePro_DataAccess.Migrations
 
             modelBuilder.Entity("JuliePro_Models.Models.ScheduledSession", b =>
                 {
+                    b.HasOne("JuliePro_Models.Models.Customer", "Customer")
+                        .WithMany("ScheduledSessions")
+                        .HasForeignKey("CustomerId");
+
                     b.HasOne("JuliePro_Models.Models.Trainer", "Training")
                         .WithMany()
                         .HasForeignKey("TrainingId");
@@ -275,6 +287,8 @@ namespace JuliePro_DataAccess.Migrations
                     b.HasOne("JuliePro_Models.Models.Training", null)
                         .WithMany("ScheduledSessions")
                         .HasForeignKey("TrainingId1");
+
+                    b.Navigation("Customer");
 
                     b.Navigation("Training");
                 });
@@ -310,6 +324,8 @@ namespace JuliePro_DataAccess.Migrations
             modelBuilder.Entity("JuliePro_Models.Models.Customer", b =>
                 {
                     b.Navigation("Objectives");
+
+                    b.Navigation("ScheduledSessions");
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.Equipment", b =>

@@ -32,7 +32,7 @@ namespace JuliePro_Models.Models
 
         //  [StringLength(400, MinimumLength = 100, ErrorMessage = "StringLengthValidation")]
         [Range(100, 400, ErrorMessage = "RangeValidation")]
-        [Column(TypeName = "decimal(400,100)")]
+        [Display(Name = "StartWeight")]
         public Double StartWeight { get; set; }
 
 
@@ -43,9 +43,10 @@ namespace JuliePro_Models.Models
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Trainer, propriété de navigation
         public Trainer Trainer { get; set; }
 
-        //OBLIGATOIRE Pour la relation plusieurs à plusieurs avec Objective, propriété de navigation
+        //OBLIGATOIRE Pour la relation 1 à plusieurs avec Objective, propriété de navigation
         public ICollection<Objective> Objectives { get; set; }
 
-
+        //OBLIGATOIRE Pour la relation 1 à plusieurs avec ScheduledSession, propriété de navigation
+        public ICollection<ScheduledSession> ScheduledSessions { get; set; }
     }
 }

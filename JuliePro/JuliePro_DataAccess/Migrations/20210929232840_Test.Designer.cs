@@ -4,14 +4,16 @@ using JuliePro_DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JuliePro_DataAccess.Migrations
 {
     [DbContext(typeof(JulieProDbContext))]
-    partial class JulieProDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210929232840_Test")]
+    partial class Test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -123,12 +125,6 @@ namespace JuliePro_DataAccess.Migrations
                     b.Property<bool>("Complete")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Customer_Id")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -153,8 +149,6 @@ namespace JuliePro_DataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CustomerId");
 
                     b.HasIndex("TrainingId");
 
@@ -274,10 +268,6 @@ namespace JuliePro_DataAccess.Migrations
 
             modelBuilder.Entity("JuliePro_Models.Models.ScheduledSession", b =>
                 {
-                    b.HasOne("JuliePro_Models.Models.Customer", "Customer")
-                        .WithMany("ScheduledSessions")
-                        .HasForeignKey("CustomerId");
-
                     b.HasOne("JuliePro_Models.Models.Trainer", "Training")
                         .WithMany()
                         .HasForeignKey("TrainingId");
@@ -285,8 +275,6 @@ namespace JuliePro_DataAccess.Migrations
                     b.HasOne("JuliePro_Models.Models.Training", null)
                         .WithMany("ScheduledSessions")
                         .HasForeignKey("TrainingId1");
-
-                    b.Navigation("Customer");
 
                     b.Navigation("Training");
                 });
@@ -322,8 +310,6 @@ namespace JuliePro_DataAccess.Migrations
             modelBuilder.Entity("JuliePro_Models.Models.Customer", b =>
                 {
                     b.Navigation("Objectives");
-
-                    b.Navigation("ScheduledSessions");
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.Equipment", b =>

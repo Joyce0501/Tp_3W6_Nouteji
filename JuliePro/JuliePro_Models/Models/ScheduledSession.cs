@@ -35,5 +35,12 @@ namespace JuliePro_Models.Models
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Training, propriété de navigation
         public Trainer Training { get; set; }
 
+        [Display(Name = "CustomerId")]
+        [ForeignKey("CustomerId")]
+        public int Customer_Id { get; set; }
+
+        //OBLIGATOIRE Pour la relation 1 à plusieurs avec Customer, propriété de navigation
+        public Customer Customer { get; set; }
+
     }
 }

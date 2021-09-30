@@ -18,11 +18,11 @@ namespace JuliePro_Models.Models
 
 
         [Range(2, 10, ErrorMessage = "RangeValidation")]
-        [Column(TypeName = "decimal(10,2)")]
+        [Display(Name = "LostWeight")]
         public Double LostWeight { get; set; }
 
         [Range(2, 45, ErrorMessage = "RangeValidation")]
-        [Column(TypeName = "decimal(45,2)")]
+        [Display(Name = "DistanceKm")]
         public Double DistanceKm { get; set; }
 
         [DataType(DataType.Date)]
