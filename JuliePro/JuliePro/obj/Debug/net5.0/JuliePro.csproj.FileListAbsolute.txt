@@ -803,3 +803,6 @@ C:\Tp1_3W5_Nouteji\JuliePro\JuliePro\bin\Debug\net5.0\fr\JuliePro_Models.resourc
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro\bin\Debug\net5.0\Localization.AspNetCore.TagHelpers.dll
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\Razor\Views\Shared\_SelectLanguage.cshtml.g.cs
 C:\Users\1983276\Desktop\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\Razor\Views\Trainer\Index.cshtml.g.cs
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro\bin\Debug\net5.0\Localization.AspNetCore.TagHelpers.dll
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\Razor\Views\Shared\_SelectLanguage.cshtml.g.cs
+C:\Tp1_3W5_Nouteji\JuliePro\JuliePro\obj\Debug\net5.0\Razor\Views\Trainer\Index.cshtml.g.cs
