@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JuliePro_DataAccess.Migrations
 {
     [DbContext(typeof(JulieProDbContext))]
-    [Migration("20210930001449_CustSession")]
-    partial class CustSession
+    [Migration("20210930164106_Building")]
+    partial class Building
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

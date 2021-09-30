@@ -34,8 +34,9 @@ namespace JuliePro_Models.Models
         [Display(Name = "SpecialityId")]
         [ForeignKey("SpecialityId")]
         public int Speciality_Id { get; set; }
-        
+
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Speciality, propriété de navigation
+        [Display(Name = "Speciality")]
         public  Speciality Speciality { get; set; }
 
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Customer

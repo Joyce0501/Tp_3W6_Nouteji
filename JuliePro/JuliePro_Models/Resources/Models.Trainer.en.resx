@@ -138,6 +138,9 @@
   <data name="SpecialityId" xml:space="preserve">
     <value>Speciality Id</value>
   </data>
+  <data name="Specialty" xml:space="preserve">
+    <value>Speciality</value>
+  </data>
   <data name="StringLengthValidation" xml:space="preserve">
     <value>{0} must have beetween  {2} and {1} maximum caracters.</value>
   </data>

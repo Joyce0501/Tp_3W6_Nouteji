@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JuliePro_DataAccess.Migrations
 {
-    public partial class Test : Migration
+    public partial class Building : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -122,38 +122,6 @@ namespace JuliePro_DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ScheduledSession",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DurationMin = table.Column<int>(type: "int", nullable: false),
-                    WithTrainer = table.Column<bool>(type: "bit", nullable: false),
-                    Complete = table.Column<bool>(type: "bit", nullable: false),
-                    Training_Id = table.Column<int>(type: "int", nullable: false),
-                    TrainingId = table.Column<int>(type: "int", nullable: true),
-                    TrainingId1 = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ScheduledSession", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ScheduledSession_Trainer_TrainingId",
-                        column: x => x.TrainingId,
-                        principalTable: "Trainer",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ScheduledSession_Training_TrainingId1",
-                        column: x => x.TrainingId1,
-                        principalTable: "Training",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Objective",
                 columns: table => new
                 {
@@ -177,6 +145,46 @@ namespace JuliePro_DataAccess.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ScheduledSession",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Description = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DurationMin = table.Column<int>(type: "int", nullable: false),
+                    WithTrainer = table.Column<bool>(type: "bit", nullable: false),
+                    Complete = table.Column<bool>(type: "bit", nullable: false),
+                    Training_Id = table.Column<int>(type: "int", nullable: false),
+                    TrainingId = table.Column<int>(type: "int", nullable: true),
+                    Customer_Id = table.Column<int>(type: "int", nullable: false),
+                    CustomerId = table.Column<int>(type: "int", nullable: true),
+                    TrainingId1 = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ScheduledSession", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ScheduledSession_Customer_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customer",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ScheduledSession_Trainer_TrainingId",
+                        column: x => x.TrainingId,
+                        principalTable: "Trainer",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ScheduledSession_Training_TrainingId1",
+                        column: x => x.TrainingId1,
+                        principalTable: "Training",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Customer_TrainerId",
                 table: "Customer",
@@ -185,6 +193,11 @@ namespace JuliePro_DataAccess.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Objective_CustomerId",
                 table: "Objective",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ScheduledSession_CustomerId",
+                table: "ScheduledSession",
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
