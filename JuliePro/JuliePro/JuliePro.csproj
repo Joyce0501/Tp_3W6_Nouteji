@@ -26,4 +26,8 @@
     <ProjectReference Include="..\JuliePro_Models\JuliePro_Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Trainer\" />
+  </ItemGroup>
+
 </Project>

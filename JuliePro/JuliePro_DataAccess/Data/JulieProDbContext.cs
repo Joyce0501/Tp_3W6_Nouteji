@@ -36,6 +36,8 @@ namespace JuliePro_DataAccess.Data
             modelBuilder.Entity<TrainingEquipment>()
             .HasKey(te => new { te.Training_Id, te.Equipment_Id });
 
+            //Générer des données de départ
+            modelBuilder.GenerateData();
 
         }
 

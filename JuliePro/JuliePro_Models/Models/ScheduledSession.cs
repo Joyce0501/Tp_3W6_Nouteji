@@ -13,7 +13,8 @@ namespace JuliePro_Models.Models
         public int Id { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
-        [StringLength(25, MinimumLength = 10, ErrorMessage = "StringLengthValidation")]
+        //    [StringLength(25, MinimumLength = 10, ErrorMessage = "StringLengthValidation")]
+        [MaxLength(40, ErrorMessage = "MaxLengthValidation")]
         public String Description { get; set; }
 
         [DataType(DataType.Date)]

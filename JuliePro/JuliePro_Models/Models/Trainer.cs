@@ -25,11 +25,15 @@ namespace JuliePro_Models.Models
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)] //Mettre aussi le type de input
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
-        public DataType Email { get; set; }
+        public String Email { get; set; }
 
         [Display(Name = "Photo")]
         [MaxLength(40, ErrorMessage = "MaxLengthValidation")]
         public String Photo { get; set; }
+
+     
+        [MaxLength(40, ErrorMessage = "MaxLengthValidation")]
+        public String Biography { get; set; }
 
         [Display(Name = "SpecialityId")]
         [ForeignKey("SpecialityId")]

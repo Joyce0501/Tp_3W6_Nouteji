@@ -18,11 +18,11 @@ namespace JuliePro_Models.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
         [StringLength(25, MinimumLength = 10, ErrorMessage = "StringLengthValidation")]
-        public String Name { get; set; }
+        public String LastName { get; set; }
 
         [DataType(DataType.EmailAddress)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
-        public DataType Email { get; set; }
+        public String Email { get; set; }
 
         [MaxLength(40, ErrorMessage = "MaxCaractersValidation")]
         public String Photo { get; set; }
