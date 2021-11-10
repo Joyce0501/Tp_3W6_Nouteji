@@ -111,6 +111,8 @@ namespace JuliePro.Controllers
     //        return View();
     //    }
     //}
+    //GET DELETE
+   
 }
 
 

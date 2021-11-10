@@ -1,0 +1,94 @@
+﻿@model JuliePro_Models.ViewModels.TrainerVM
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = "Create an Author"; }
+
+<div class="p-3 DivBgForm">
+    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+        <div class="row p-3 ">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-12 border-bottom container rounded p-2">
+                <input type="hidden" asp-for="Trainer.Id" />
+                @if (Model.Trainer.Id > 0)
+                {
+                    //Edit
+                    title = "Edit an Author";
+                }
+                <h2 class="text-primary">@title</h2>
+            </div>
+
+            <div class="col-7 pt-2">
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Trainer.FirstName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Trainer.FirstName" class="form-control" />
+                        <span asp-validation-for="Trainer.FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Trainer.LastName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Trainer.LastName" class="form-control" />
+                        <span asp-validation-for="Trainer.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Trainer.Email"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Trainer.Email" class="form-control" />
+                        <span asp-validation-for="Trainer.Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Trainer.Biography"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Trainer.Biography" class="form-control" />
+                        <span asp-validation-for="Trainer.Biography" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-2">
+                        BUTTONS
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5 border pt-2">
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Trainer.Photo"></label>
+                    </div>
+                    <div class="col-10">
+                        <input asp-for="Trainer.Photo" class="form-control" />
+                        <span asp-validation-for="Trainer.Photo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-12 pt-2">
+                    <div class="form-group row pt-1">
+
+                        <img src="" height="450px" width="450px" alt="Picture of the trainer" />
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+}
