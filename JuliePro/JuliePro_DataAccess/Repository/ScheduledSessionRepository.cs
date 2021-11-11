@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JuliePro_DataAccess.Repository
 {
-    public class ScheduledSessionRepository : Repository<ScheduledSession>, IScheduledSessionRepository
+    public class ScheduledSessionRepository : RepositoryAsync<ScheduledSession>, IScheduledSessionRepository
     {
         private readonly JulieProDbContext _db;
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JuliePro_DataAccess.Repository
 {
-    public class TrainingEquipmentRepository : Repository<TrainingEquipmentRepository>, ITrainingEquipmentRepository
+    public class TrainingEquipmentRepository : RepositoryAsync<TrainingEquipmentRepository>, ITrainingEquipmentRepository
     {
         private readonly JulieProDbContext _db;
 

@@ -66,7 +66,14 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-8 offset-2">
-                        BUTTONS
+                        @*BUTTONS*@
+
+                        @if (Model.Trainer.Id != 0)
+                        {
+                    <partial name="_UpdateBack" model="Model.Trainer.Id" /> }
+                else
+                {
+                    <partial name="_CreateBack" />}
                     </div>
                 </div>
             </div>

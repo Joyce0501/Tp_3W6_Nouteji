@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JuliePro_DataAccess.Repository.IRepository
 {
-    public interface IEquipmentRepository : IRepository<Equipment>
+    public interface IEquipmentRepository : IRepositoryAsync<Equipment>
     {
         void Update(Equipment equipment);
     }

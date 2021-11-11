@@ -1,5 +1,6 @@
 ﻿using JuliePro_DataAccess.Repository.IRepository;
 using JuliePro_Models.Models;
+using JuliePro_Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,9 +21,9 @@ namespace JuliePro.Controllers
             _unitOfWork = unitOfWork;
             _logger = logger;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            IEnumerable<Trainer> TrainerList = _unitOfWork.Trainer.GetAll(includeProperties:"Speciality");
+            IEnumerable<Trainer> TrainerList = await _unitOfWork.Trainer.GetAllAsync(includeProperties:"Speciality");
 
             return View(TrainerList);
         }
@@ -48,7 +49,7 @@ namespace JuliePro.Controllers
         // POST: TrainerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(/*IFormCollection collection*/Trainer trainer)
+        public async Task<IActionResult> Create(/*IFormCollection collection*/Trainer trainer)
         {
             //try
             //{
@@ -61,58 +62,94 @@ namespace JuliePro.Controllers
             if (ModelState.IsValid)
             {
                 // Ajouter à la BD
-                _unitOfWork.Trainer.Add(trainer);
+
+               await _unitOfWork.Trainer.AddAsync(trainer);
 
                 _unitOfWork.Save();
                 return RedirectToAction(nameof(Index));
             }
             return this.View(trainer);
         }
+
+        //GET - UPSERT
+        public async Task<IActionResult> Upsert(int? id)
+        {
+            TrainerVM trainerVM = new TrainerVM()
+            {
+                Trainer = new Trainer()
+            };
+
+            if (id == null)
+            {
+                //CREATE
+                return View(trainerVM);
+            }
+            else
+            {
+                //EDIT
+                trainerVM.Trainer = await _unitOfWork.Trainer.FirstOrDefaultAsync(/*filter: a => a.Id == id, includeProperties: "AuthorDetail"*/);
+
+                if (trainerVM == null)
+                {
+                    return NotFound();
+                }
+                return View(trainerVM);
+            }
+
+        }
+
+        //POST Upsert
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Upsert(TrainerVM trainerVM)
+        {
+            if (trainerVM.Trainer.Id == 0)
+            {
+                //this is create
+                await _unitOfWork.Trainer.AddAsync(trainerVM.Trainer);
+            }
+            else
+            {
+                //this is an update
+                _unitOfWork.Trainer.Update(trainerVM.Trainer);
+            }
+            _unitOfWork.Save();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = await _unitOfWork.Trainer.GetAsync(id.GetValueOrDefault());
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        //POST DELETE
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> DeletePost(int? id)
+        {
+            var obj = await _unitOfWork.Trainer.GetAsync(id.GetValueOrDefault());
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            await _unitOfWork.Trainer.RemoveAsync(obj);
+            _unitOfWork.Save();
+
+            return RedirectToAction("Index");
+        }
     }
-
-    // GET: TrainerController/Edit/5
-    //public ActionResult Edit(int id)
-    //{
-    //    return View();
-    //}
-
-    //// POST: TrainerController/Edit/5
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public ActionResult Edit(int id, IFormCollection collection)
-    //{
-    //    try
-    //    {
-    //        return RedirectToAction(nameof(Index));
-    //    }
-    //    catch
-    //    {
-    //        return View();
-    //    }
-    //}
-
-    //// GET: TrainerController/Delete/5
-    //public ActionResult Delete(int id)
-    //{
-    //    return View();
-    //}
-
-    //// POST: TrainerController/Delete/5
-    //[HttpPost]
-    //[ValidateAntiForgeryToken]
-    //public ActionResult Delete(int id, IFormCollection collection)
-    //{
-    //    try
-    //    {
-    //        return RedirectToAction(nameof(Index));
-    //    }
-    //    catch
-    //    {
-    //        return View();
-    //    }
-    //}
-    //GET DELETE
-   
 }
 
 

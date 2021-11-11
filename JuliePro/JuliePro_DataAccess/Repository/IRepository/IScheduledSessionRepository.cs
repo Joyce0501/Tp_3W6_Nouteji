@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JuliePro_DataAccess.Repository.IRepository
 {
-    public interface IScheduledSessionRepository : IRepository<ScheduledSession>
+    public interface IScheduledSessionRepository : IRepositoryAsync<ScheduledSession>
     {
         void Update(ScheduledSession scheduledsession);
     }

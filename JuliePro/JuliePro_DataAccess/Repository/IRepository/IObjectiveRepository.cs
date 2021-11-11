@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JuliePro_DataAccess.Repository.IRepository
 {
-    public interface IObjectiveRepository : IRepository<Objective>
+    public interface IObjectiveRepository : IRepositoryAsync<Objective>
     {
         void Update(Objective objective);
     }
