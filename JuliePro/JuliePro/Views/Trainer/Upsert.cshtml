@@ -1,6 +1,6 @@
 ﻿@model JuliePro_Models.ViewModels.TrainerVM
 @{ Layout = "~/Views/Shared/_Layout.cshtml";
-    var title = "Create an Author"; }
+    var title = "Create a Trainer"; }
 
 <div class="p-3 DivBgForm">
     <form class="form-horizontal" method="post" enctype="multipart/form-data">
@@ -11,7 +11,7 @@
                 @if (Model.Trainer.Id > 0)
                 {
                     //Edit
-                    title = "Edit an Author";
+                    title = "Create a Trainer";
                 }
                 <h2 class="text-primary">@title</h2>
             </div>

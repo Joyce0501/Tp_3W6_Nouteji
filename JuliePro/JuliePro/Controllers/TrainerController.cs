@@ -41,7 +41,7 @@ namespace JuliePro.Controllers
         //}
 
         // GET: TrainerController/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -117,21 +117,21 @@ namespace JuliePro.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Delete(int? id)
+        //{
+        //    if (id == null || id == 0)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var obj = await _unitOfWork.Trainer.GetAsync(id.GetValueOrDefault());
-            if (obj == null)
-            {
-                return NotFound();
-            }
+        //    var obj = await _unitOfWork.Trainer.GetAsync(id.GetValueOrDefault());
+        //    if (obj == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(obj);
-        }
+        //    return View(obj);
+        //}
 
         //POST DELETE
         [HttpPost]

@@ -1,6 +1,6 @@
 ﻿@model JuliePro_Models.ViewModels.TrainerVM
 @{ Layout = "~/Views/Shared/_Layout.cshtml";
-    var title = "Create an Author"; }
+    var title = "Delete a Trainer"; }
 
 <div class="p-3 DivBgForm">
     <form class="form-horizontal" method="post" enctype="multipart/form-data">
@@ -11,7 +11,7 @@
                 @if (Model.Trainer.Id > 0)
                 {
                     //Edit
-                    title = "Edit an Author";
+                    title = "Delete a Trainer";
                 }
                 <h2 class="text-primary">@title</h2>
             </div>
@@ -60,12 +60,8 @@
                 <div class="form-group row">
                     <div class="col-8 offset-2">
                         @*BUTTONS*@
-                        <div class="col">
-                            <input type="submit" class="btn btn-info w-100" value="Delete" />
-                        </div>
-                        <div class="col">
-                            <a asp-action="Index" class="btn btn-success w-100">Back to list</a>
-                        </div>
+
+                        @{<partial name="_DeleteAndBackToListButton" model="Model.Trainer.Id" /> }
                     </div>
                 </div>
             </div>
