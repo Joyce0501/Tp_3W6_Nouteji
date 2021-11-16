@@ -78,19 +78,19 @@ namespace JuliePro.Controllers
             if (id == null)
             {
                 //CREATE
-                return View(trainerVM.Trainer.Id);
+                return View(trainerVM);
             }
-            else
-            {
+            //else
+            //{
                 //EDIT
-                trainerVM.Trainer = await _unitOfWork.Trainer.FirstOrDefaultAsync(t => t.Id == id, includeProperties: "Speciality");
+                trainerVM.Trainer = await _unitOfWork.Trainer.GetAsync(id.GetValueOrDefault());
 
-                if (trainerVM == null)
+                if (trainerVM.Trainer == null)
                 {
                     return NotFound();
                 }
                 return View(trainerVM);
-            }
+            //}
 
         }
 
