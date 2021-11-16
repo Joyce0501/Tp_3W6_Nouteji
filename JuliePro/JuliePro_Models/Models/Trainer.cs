@@ -40,7 +40,7 @@ namespace JuliePro_Models.Models
         public int SpecialityId { get; set; }
 
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Speciality, propriété de navigation
-        public virtual Speciality Speciality { get; set; }
+        public Speciality Speciality { get; set; }
 
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Customer
         public ICollection<Customer> Customers { get; set; }

@@ -20,7 +20,6 @@ namespace JuliePro.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<TrainerController> _logger;
         private readonly IWebHostEnvironment _webHostEnvironment;
-       
 
         public TrainerController(IUnitOfWork unitOfWork, ILogger<TrainerController> logger,IWebHostEnvironment webHostEnvironment)
         {
@@ -63,28 +62,28 @@ namespace JuliePro.Controllers
         //GET - UPSERT
         public async Task<IActionResult> Upsert(int? id)
         {
-            //IEnumerable<Speciality> specialities = (IEnumerable<Speciality>)_unitOfWork.Speciality.GetAllAsync();
+            IEnumerable<Speciality> specialities = await _unitOfWork.Speciality.GetAllAsync();
 
-            TrainerVM trainerVM = new TrainerVM();
+            TrainerVM trainerVM = new TrainerVM()
 
-            //{
-            //    Trainer = new Trainer(),
-            //    SpecialityList = specialities.Select(s => new SelectListItem
-            //    {
-            //        Text = s.Name,
-            //        Value = s.Id.ToString()
-            //    })
-            //};
+            {
+                Trainer = new Trainer(),
+                SpecialityList = specialities.Select(s => new SelectListItem
+                {
+                    Text = s.Name,
+                    Value = s.Id.ToString()
+                })
+            };
 
             if (id == null)
             {
                 //CREATE
-                return View(trainerVM);
+                return View(trainerVM.Trainer.Id);
             }
             else
             {
                 //EDIT
-                trainerVM.Trainer = await _unitOfWork.Trainer.FirstOrDefaultAsync(t => t.Id == id.GetValueOrDefault(),includeProperties:"Speciality");
+                trainerVM.Trainer = await _unitOfWork.Trainer.FirstOrDefaultAsync(t => t.Id == id, includeProperties: "Speciality");
 
                 if (trainerVM == null)
                 {
@@ -123,6 +122,8 @@ namespace JuliePro.Controllers
             {
                 //this is create
                 await _unitOfWork.Trainer.AddAsync(trainerVM.Trainer);
+
+                //_unitOfWork.Trainer.Update(trainerVM.Trainer);
             }
             else
             {
