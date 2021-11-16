@@ -14,7 +14,7 @@ namespace JuliePro_Models.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
         [StringLength(15, MinimumLength = 5, ErrorMessage = "StringthLengthValidation")]
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Trainer
         public ICollection <Trainer> Trainers { get; set; }

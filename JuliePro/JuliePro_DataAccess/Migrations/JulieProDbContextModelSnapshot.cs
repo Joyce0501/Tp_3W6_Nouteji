@@ -29,15 +29,16 @@ namespace JuliePro_DataAccess.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Email")
-                        .HasColumnType("int");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
@@ -60,6 +61,19 @@ namespace JuliePro_DataAccess.Migrations
                     b.HasIndex("TrainerId");
 
                     b.ToTable("Customer");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BirthDate = new DateTime(1965, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "arthurLaroche@gmail.com",
+                            FirstName = "Arthur",
+                            LastName = "Laroche",
+                            Photo = "",
+                            StartWeight = 0.0,
+                            Trainer_Id = 3
+                        });
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.Equipment", b =>
@@ -71,12 +85,54 @@ namespace JuliePro_DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Equipment");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Vélo"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Ensemble dumbels"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Tapis"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Step"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Ensemble barre altère"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Bloc yoga"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Elastiques"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Ballon d'exercice"
+                        });
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.Objective", b =>
@@ -111,6 +167,35 @@ namespace JuliePro_DataAccess.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Objective");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AchievedDate = new DateTime(2021, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Customer_Id = 1,
+                            DistanceKm = 0.0,
+                            LostWeight = 5.0,
+                            Name = ""
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AchievedDate = new DateTime(2021, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Customer_Id = 1,
+                            DistanceKm = 0.0,
+                            LostWeight = 5.0,
+                            Name = ""
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AchievedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Customer_Id = 1,
+                            DistanceKm = 0.0,
+                            LostWeight = 5.0,
+                            Name = ""
+                        });
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.ScheduledSession", b =>
@@ -178,6 +263,28 @@ namespace JuliePro_DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Speciality");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Perte de poids"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Course"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Althérophilie"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Réhabilitation"
+                        });
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.Trainer", b =>
@@ -191,8 +298,9 @@ namespace JuliePro_DataAccess.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<int>("Email")
-                        .HasColumnType("int");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -208,10 +316,7 @@ namespace JuliePro_DataAccess.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<int?>("SpecialityId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Speciality_Id")
+                    b.Property<int>("SpecialityId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -219,6 +324,71 @@ namespace JuliePro_DataAccess.Migrations
                     b.HasIndex("SpecialityId");
 
                     b.ToTable("Trainer");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "Chrystal.lapierre@juliepro.ca",
+                            FirstName = "Chrysal",
+                            LastName = "Lappierre",
+                            Photo = "8624af64-2685-459a-a1cc-816c0695d760.png",
+                            SpecialityId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "Felix.trudeau@juliePro.ca",
+                            FirstName = "Félix",
+                            LastName = "Trudeau",
+                            Photo = "a202bae3-e6bb-40f0-84cf-e4b11627ba1c.png",
+                            SpecialityId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Email = "Frank.StJohn@juliepro.ca",
+                            FirstName = "François",
+                            LastName = "Saint-John",
+                            Photo = "aedd9532-1395-42a2-8ae6-56f0e2ab49b5.png",
+                            SpecialityId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Email = "JC.Bastien@juliepro.ca",
+                            FirstName = "Jean-Claude",
+                            LastName = "Bastien",
+                            Photo = "d7bcc6d9-0599-42aa-8305-3c1ae5a4505c.png",
+                            SpecialityId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Email = "JinLee.godette@juliepro.ca",
+                            FirstName = "Jin Lee",
+                            LastName = "Godette",
+                            Photo = "E3Rcc6d9-0599-42aa-8305-3c1ae5a4512v.png",
+                            SpecialityId = 3
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Email = "Karine.Lachance@juliepro.ca",
+                            FirstName = "Karine",
+                            LastName = "Lachance",
+                            Photo = "b333bae3-e6bb-40f0-84cf-e4b11627ba1c.png",
+                            SpecialityId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Email = "Ramone.Esteban@juliepro.ca",
+                            FirstName = "Ramone",
+                            LastName = "Esteban",
+                            Photo = "waqd9532-1395-42a2-8ae6-56f0e2ab49e9.png",
+                            SpecialityId = 3
+                        });
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.Training", b =>
@@ -241,6 +411,50 @@ namespace JuliePro_DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Training");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Category = "Cardio",
+                            Name = "Step"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Category = "Étirement",
+                            Name = "Yoga"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Category = "Musculaire",
+                            Name = "CrossFit"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Category = "Cardio",
+                            Name = "Course"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Category = "Cardio",
+                            Name = "Zumba"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Category = "Musculaire",
+                            Name = "Spinning"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Category = "Étirement",
+                            Name = "Taichi"
+                        });
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.TrainingEquipment", b =>
@@ -256,6 +470,53 @@ namespace JuliePro_DataAccess.Migrations
                     b.HasIndex("Equipment_Id");
 
                     b.ToTable("TrainingEquipment");
+
+                    b.HasData(
+                        new
+                        {
+                            Training_Id = 1,
+                            Equipment_Id = 4
+                        },
+                        new
+                        {
+                            Training_Id = 1,
+                            Equipment_Id = 7
+                        },
+                        new
+                        {
+                            Training_Id = 2,
+                            Equipment_Id = 3
+                        },
+                        new
+                        {
+                            Training_Id = 2,
+                            Equipment_Id = 6
+                        },
+                        new
+                        {
+                            Training_Id = 3,
+                            Equipment_Id = 2
+                        },
+                        new
+                        {
+                            Training_Id = 3,
+                            Equipment_Id = 5
+                        },
+                        new
+                        {
+                            Training_Id = 3,
+                            Equipment_Id = 4
+                        },
+                        new
+                        {
+                            Training_Id = 6,
+                            Equipment_Id = 1
+                        },
+                        new
+                        {
+                            Training_Id = 2,
+                            Equipment_Id = 8
+                        });
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.Customer", b =>
@@ -299,7 +560,9 @@ namespace JuliePro_DataAccess.Migrations
                 {
                     b.HasOne("JuliePro_Models.Models.Speciality", "Speciality")
                         .WithMany("Trainers")
-                        .HasForeignKey("SpecialityId");
+                        .HasForeignKey("SpecialityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Speciality");
                 });

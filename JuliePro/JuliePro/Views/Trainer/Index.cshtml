@@ -1,5 +1,5 @@
 ﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
-@model IEnumerable<JuliePro_Models.Models.Trainer>
+@model IEnumerable<JuliePro_Models.Models.Trainer >
 <br />
 <br />
 <div class="border p-4 bg-white">
@@ -32,7 +32,7 @@
                     </th>
                 </tr>
 
-                debut de la liste
+                @*debut de la liste*@
 
                 @foreach (var item in Model)
                 {
@@ -51,13 +51,13 @@
                             @item.Speciality.Name
                         </td>
                         <td>
-                            <a class="btn btn-primary text-white" asp-controller = "Trainer" asp-action="Upsert" asp-route-Id="@item.Id"> Edit</a>
+                            <a class="btn btn-primary text-white" asp-controller = "Trainer" asp-action="Upsert" asp-route-Id="@item.Id"> Upsert </a>
                             <a class="btn btn-info text-white" asp-controller = "Trainer" asp-action="" asp-route-Id="@item.Id"> Details </a>
                             <a class="btn btn-danger text-white" asp-controller = "Trainer" asp-action="Delete" asp-route-Id="@item.Id">  Delete </a>
                         </td>
                     </tr>
                 }
-                Fin de la liste
+                @*Fin de la liste*@
             </table>
         }
         else

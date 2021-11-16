@@ -13,7 +13,7 @@ namespace JuliePro_Models.Models
 
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
-        [StringLength(15, MinimumLength = 5, ErrorMessage = "StringLengthValidation")]
+        [StringLength(25, MinimumLength = 5, ErrorMessage = "StringLengthValidation")]
         public String Name { get; set; }
 
 

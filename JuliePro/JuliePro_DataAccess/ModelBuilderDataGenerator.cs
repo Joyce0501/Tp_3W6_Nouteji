@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JuliePro_DataAccess
 {
-    public static class ModelBuilderDataGenerator
+    static class ModelBuilderDataGenerator
     {
         public static void GenerateData(this ModelBuilder builder)
         {
@@ -20,13 +20,13 @@ namespace JuliePro_DataAccess
             #endregion
 
             #region Données pour Trainer
-            builder.Entity<Trainer>().HasData(new Trainer() { Id = 1, FirstName = "Chrysal", LastName = "Lappierre", Email = "Chrystal.lapierre@juliepro.ca", Speciality_Id = 1, Photo = "8624af64-2685-459a-a1cc-816c0695d760.png" });
-            builder.Entity<Trainer>().HasData(new Trainer() { Id = 2, FirstName = "Félix", LastName = "Trudeau", Email = "Felix.trudeau@juliePro.ca", Speciality_Id = 2, Photo = "a202bae3-e6bb-40f0-84cf-e4b11627ba1c.png" });
-            builder.Entity<Trainer>().HasData(new Trainer() { Id = 3, FirstName = "François", LastName = "Saint-John", Email = "Frank.StJohn@juliepro.ca", Speciality_Id = 1, Photo = "aedd9532-1395-42a2-8ae6-56f0e2ab49b5.png" });
-            builder.Entity<Trainer>().HasData(new Trainer() { Id = 4, FirstName = "Jean-Claude", LastName = "Bastien", Email = "JC.Bastien@juliepro.ca", Speciality_Id = 4, Photo = "d7bcc6d9-0599-42aa-8305-3c1ae5a4505c.png" });
-            builder.Entity<Trainer>().HasData(new Trainer() { Id = 5, FirstName = "Jin Lee", LastName = "Godette", Email = "JinLee.godette@juliepro.ca", Speciality_Id = 3, Photo = "E3Rcc6d9-0599-42aa-8305-3c1ae5a4512v.png" });
-            builder.Entity<Trainer>().HasData(new Trainer() { Id = 6, FirstName = "Karine", LastName = "Lachance", Email = "Karine.Lachance@juliepro.ca", Speciality_Id = 2, Photo = "b333bae3-e6bb-40f0-84cf-e4b11627ba1c.png" });
-            builder.Entity<Trainer>().HasData(new Trainer() { Id = 7, FirstName = "Ramone", LastName = "Esteban", Email = "Ramone.Esteban@juliepro.ca", Speciality_Id = 3, Photo = "waqd9532-1395-42a2-8ae6-56f0e2ab49e9.png" });
+            builder.Entity<Trainer>().HasData(new Trainer() { Id = 1, FirstName = "Chrysal", LastName = "Lappierre", Email = "Chrystal.lapierre@juliepro.ca", SpecialityId = 1, Photo = "8624af64-2685-459a-a1cc-816c0695d760.png" });
+            builder.Entity<Trainer>().HasData(new Trainer() { Id = 2, FirstName = "Félix", LastName = "Trudeau", Email = "Felix.trudeau@juliePro.ca", SpecialityId = 2, Photo = "a202bae3-e6bb-40f0-84cf-e4b11627ba1c.png" });
+            builder.Entity<Trainer>().HasData(new Trainer() { Id = 3, FirstName = "François", LastName = "Saint-John", Email = "Frank.StJohn@juliepro.ca", SpecialityId = 1, Photo = "aedd9532-1395-42a2-8ae6-56f0e2ab49b5.png" });
+            builder.Entity<Trainer>().HasData(new Trainer() { Id = 4, FirstName = "Jean-Claude", LastName = "Bastien", Email = "JC.Bastien@juliepro.ca", SpecialityId = 4, Photo = "d7bcc6d9-0599-42aa-8305-3c1ae5a4505c.png" });
+            builder.Entity<Trainer>().HasData(new Trainer() { Id = 5, FirstName = "Jin Lee", LastName = "Godette", Email = "JinLee.godette@juliepro.ca", SpecialityId = 3, Photo = "E3Rcc6d9-0599-42aa-8305-3c1ae5a4512v.png" });
+            builder.Entity<Trainer>().HasData(new Trainer() { Id = 6, FirstName = "Karine", LastName = "Lachance", Email = "Karine.Lachance@juliepro.ca", SpecialityId = 2, Photo = "b333bae3-e6bb-40f0-84cf-e4b11627ba1c.png" });
+            builder.Entity<Trainer>().HasData(new Trainer() { Id = 7, FirstName = "Ramone", LastName = "Esteban", Email = "Ramone.Esteban@juliepro.ca", SpecialityId = 3, Photo = "waqd9532-1395-42a2-8ae6-56f0e2ab49e9.png" });
             #endregion
 
             #region Données pour Training

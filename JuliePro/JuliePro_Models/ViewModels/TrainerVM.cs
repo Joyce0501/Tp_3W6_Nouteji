@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JuliePro_Models.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace JuliePro_Models.ViewModels
 {
@@ -11,12 +12,7 @@ namespace JuliePro_Models.ViewModels
     {
         public Trainer Trainer { get; set; }
 
-        public String LastName { get; set; }
+        public IEnumerable<SelectListItem> SpecialityList { get; set; }
 
-        public String FirstName { get; set; }
-
-        public String Biography { get; set; }
-
-        public String Email { get; set; }
     }
 }

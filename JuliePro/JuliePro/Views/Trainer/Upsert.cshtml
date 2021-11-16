@@ -58,10 +58,10 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-3">
-                        <label asp-for="Trainer.Speciality_Id"></label>
+                        <label asp-for="Trainer.Speciality.Id"></label>
                     </div>
                     <div class="col-9">
-                        ListBox speciality
+                        @*ListBox speciality*@
                     </div>
                 </div>
                 <div class="form-group row">
@@ -69,11 +69,14 @@
                         @*BUTTONS*@
 
                         @if (Model.Trainer.Id != 0)
+                         {
+                            <partial name="_UpdateBack" model="Model.Trainer.Id" /> 
+                         }
+
+                        else
                         {
-                    <partial name="_UpdateBack" model="Model.Trainer.Id" /> }
-                else
-                {
-                    <partial name="_CreateBack" />}
+                            <partial name="_CreateBack" />
+                        }
                     </div>
                 </div>
             </div>
@@ -91,9 +94,7 @@
 
                 <div class="col-12 pt-2">
                     <div class="form-group row pt-1">
-
-                        <img src="" height="450px" width="450px" alt="Picture of the trainer" />
-
+                        <img src="~/Trainers/@Model.Trainer.Photo" height="450px" width="450px" alt="Picture of the trainer" />
                     </div>
                 </div>
             </div>

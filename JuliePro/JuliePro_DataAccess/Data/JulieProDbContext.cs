@@ -33,8 +33,7 @@ namespace JuliePro_DataAccess.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //TrainingEquipment : clé composée (composite key)
-            modelBuilder.Entity<TrainingEquipment>()
-            .HasKey(te => new { te.Training_Id, te.Equipment_Id });
+            modelBuilder.Entity<TrainingEquipment>().HasKey(te => new { te.Training_Id, te.Equipment_Id });
 
             //Générer des données de départ
             modelBuilder.GenerateData();
