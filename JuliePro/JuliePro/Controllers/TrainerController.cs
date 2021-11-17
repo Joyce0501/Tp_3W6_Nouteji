@@ -192,6 +192,11 @@ namespace JuliePro.Controllers
 
             return RedirectToAction("Index");
         }
+
+        //public IActionResult Filtrer()
+        //{
+        //    return View("Filtrer");
+        //}
     }
 }
 

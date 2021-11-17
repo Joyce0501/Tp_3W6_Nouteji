@@ -1,0 +1,27 @@
+﻿@model JuliePro_Models.ViewModels.TrainerVM;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="row ">
+
+    <div class="col-9">
+
+        <div class="row">
+
+            @if (Model.SpecialityList.Count()> 0)
+            {
+                @*@foreach (var e in Model.SpecialityList)
+                {
+
+                    <partial name="_RecherchePartial" for="@e" />
+
+                }*@
+            }
+
+            else
+            {
+                <p> Aucun resultat </p>
+            }
+
+        </div>
+
+    </div>
