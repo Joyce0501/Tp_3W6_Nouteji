@@ -1,6 +1,7 @@
 ﻿@model JuliePro_Models.Models.Trainer
 @{ Layout = "~/Views/Shared/_Layout.cshtml";
     var title = "Delete a Trainer"; }
+@using JuliePro.Utility;
 
 <div class="p-3 DivBgForm">
     <form class="form-horizontal" method="post" enctype="multipart/form-data">
@@ -80,8 +81,8 @@
                 <div class="col-12 pt-2">
                     <div class="form-group row pt-1">
 
-                        <img src="~/Trainers/@Model.Photo" height="450px" width="450px" alt="Picture of the trainer" />
-                      
+                        <img src="@AppContants.ImagePathView@Model.Photo" height="450px" width="450px" alt="Picture of the trainer" />
+
 
                     </div>
                 </div>

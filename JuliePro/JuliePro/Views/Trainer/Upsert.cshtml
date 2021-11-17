@@ -1,6 +1,7 @@
 ﻿@model JuliePro_Models.ViewModels.TrainerVM
 @{ Layout = "~/Views/Shared/_Layout.cshtml";
     var title = "Create a Trainer"; }
+@using JuliePro.Utility;
 
 <div class="p-3 DivBgForm">
     <form class="form-horizontal" method="post" enctype="multipart/form-data">
@@ -62,6 +63,8 @@
                     </div>
                     <div class="col-9">
                         @*ListBox speciality*@
+                        @Html.DropDownListFor(s => s.Trainer.SpecialityId, Model.SpecialityList.OrderBy(s => s.Text), "-Select a Speciality",
+                      new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group row">
@@ -69,9 +72,9 @@
                         @*BUTTONS*@
 
                         @if (Model.Trainer.Id != 0)
-                         {
-                            <partial name="_UpdateBack" model="Model.Trainer.Id" /> 
-                         }
+                        {
+                            <partial name="_UpdateBack" model="Model.Trainer.Id" />
+                        }
 
                         else
                         {
@@ -87,14 +90,22 @@
                         <label asp-for="Trainer.Photo"></label>
                     </div>
                     <div class="col-10">
-                        <input asp-for="Trainer.Photo" class="form-control" />
+                        <input type="file" name="files" id="uploadBox" asp-for="Trainer.Photo" on class="form-control" />
                         <span asp-validation-for="Trainer.Photo" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="col-12 pt-2">
                     <div class="form-group row pt-1">
-                        <img src="~/Trainers/@Model.Trainer.Photo" height="450px" width="450px" alt="Picture of the trainer" />
+                        @if (Model.Trainer.Photo != null)
+                        {
+                    <img src="@AppContants.ImagePathView@Model.Trainer.Photo" id="Trainer.Photo" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" /> }
+                                else
+                                {
+                    <img src="@AppContants.ImagePathView@AppContants.ImagePath" id="Trainer.Photo" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />}
+
+
+                       @* <img src="@AppContants.ImagePathView@Model.Trainer.Photo" id="Trainer.Photo" height="450px" width="450px" alt="Picture of the trainer" />*@
                     </div>
                 </div>
             </div>
@@ -103,6 +114,12 @@
 </div>
 
 @section Scripts{
-    <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial"  />
+
+        <script>
+            $(document).ready(function () {
+            $('.summernote').summernote();
+
+          });</script>
 
 }

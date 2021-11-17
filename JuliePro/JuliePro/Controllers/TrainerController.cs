@@ -105,9 +105,18 @@ namespace JuliePro.Controllers
             if (files.Count > 0)
             {
                 string fileName = Guid.NewGuid().ToString();// Nom fichier généré, unique
-                var uploads = Path.Combine(webRootPath, AppContants.ImagePathView);// chemin pour les image
-                var extenstion = Path.GetExtension(files[0].FileName); // extraire l'extention du fichier
+                var uploads = Path.Combine(webRootPath, AppContants.ImagePath);// chemin pour les images
+                var extenstion = Path.GetExtension(files[0].FileName); // extraire l'extension du fichier
 
+                if (trainerVM.Trainer.Photo != null)
+                {
+                    //L'image est modifiée: l'ancienne doit être supprimée
+                    var imagePath = Path.Combine(webRootPath, trainerVM.Trainer.Photo.TrimStart('\\'));
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        System.IO.File.Delete(imagePath);
+                    }
+                }
                 // Create un canal pour transférer le fichier 
                 using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + extenstion), FileMode.Create))
                 {
@@ -117,11 +126,17 @@ namespace JuliePro.Controllers
                 // avec le path relatif à partir du Root
                 // sans le path relatif (le path devra être ajouté dans la View)
                trainerVM.Trainer.Photo = fileName + extenstion;
+              
             }
+
+            // Ajouter à la BD
+            await _unitOfWork.Trainer.AddAsync(trainerVM.Trainer);
+
             if (trainerVM.Trainer.Id == 0)
             {
                 //this is create
                 await _unitOfWork.Trainer.AddAsync(trainerVM.Trainer);
+                _unitOfWork.Save();
 
                 //_unitOfWork.Trainer.Update(trainerVM.Trainer);
             }
@@ -131,6 +146,7 @@ namespace JuliePro.Controllers
                 //_unitOfWork.Trainer.AddAsync(trainerVM.Trainer);
 
                 _unitOfWork.Trainer.Update(trainerVM.Trainer);
+                _unitOfWork.Save();
             }
             _unitOfWork.Save();
             return RedirectToAction(nameof(Index));
