@@ -193,10 +193,17 @@ namespace JuliePro.Controllers
             return RedirectToAction("Index");
         }
 
-        //public IActionResult Filtrer()
-        //{
-        //    return View("Filtrer");
-        //}
+        public async Task<IActionResult> FiltrerAsync()
+        {
+
+
+            TrainerVM trainerVM = new TrainerVM()
+            {
+                Trainers = await _unitOfWork.Trainer.GetAllAsync(includeProperties: "Speciality"),
+                Specialities = await _unitOfWork.Speciality.GetAllAsync(),
+            };
+            return View(trainerVM);
+        }
     }
 }
 

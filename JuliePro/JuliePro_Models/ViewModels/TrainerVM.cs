@@ -14,5 +14,9 @@ namespace JuliePro_Models.ViewModels
 
         public IEnumerable<SelectListItem> SpecialityList { get; set; }
 
+        public IEnumerable<Speciality> Specialities { get; set; }
+
+        public IEnumerable<Trainer> Trainers { get; set; }
+
     }
 }

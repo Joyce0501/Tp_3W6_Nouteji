@@ -1,27 +1,46 @@
 ﻿@model JuliePro_Models.ViewModels.TrainerVM;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<div class="row ">
+﻿@*@{ ViewData["Title"] = "Home Page"; }*@
 
-    <div class="col-9">
+<div class="text-center">
+    <h1 class="display-4">Welcome everybody!</h1>
+</div>
 
-        <div class="row">
-
-            @if (Model.SpecialityList.Count()> 0)
-            {
-                @*@foreach (var e in Model.SpecialityList)
-                {
-
-                    <partial name="_RecherchePartial" for="@e" />
-
-                }*@
-            }
-
-            else
-            {
-                <p> Aucun resultat </p>
-            }
-
-        </div>
-
+<div class="container p-3 DivBgForm">
+    <div class="text-center">
+        <button class="btn btn-dark filter-button" data-filter="all">All</button>
+        @foreach (var obj in Model.Specialities)
+        {
+<button class="btn btn-outline-secondary filter-button" data-filter="@obj.Name.Replace(' ','_')">
+    @obj.Name
+</button>}
     </div>
+    <br />
+    <div class="row">
+        @foreach (var item in Model.Trainers)
+        {
+<partial name="_TrainerCard" model="item" />//Afficher tous les trainers
+}
+    </div>
+</div>
+@section Scripts{
+    <script>$(document).ready(function(){
+
+    $(".filter-button").click(function(){
+
+        var value = $(this).attr('data-filter');
+        if(value == "all")
+        {
+            $('.filter').show('1000');
+        }
+        else
+        {
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+
+        }
+    });
+
+});</script>
+}
