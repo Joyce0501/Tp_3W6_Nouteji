@@ -1,8 +1,8 @@
 ﻿@model JuliePro_Models.ViewModels.CustomerVM
 
-<form method="post">
-    <br />
 
+@*<form method="post">
+    <br />*@
     <div class="card pb-3">
         <div class="card-header pb-3 bg-dark text-light ml-0 row container">
             <div class="col-6">
@@ -10,7 +10,7 @@
                 Customer
             </div>
             <div class="col-4 text-right">
-                @*<a asp-controller="Publisher" asp-action="Index" class="btn btn-outline-info">Back to list</a>*@
+                @*<a asp-controller="Publisher" asp-action="Index" class="btn btn-outline-info">Add an objective</a>*@
             </div>
         </div>
         <div class="card-body">
@@ -20,12 +20,12 @@
                         <div class="row">
 
                             <h4 class="d-flex justify-content-between align-items-center">
-                                <span class="text-info">Customer</span>
+                                <span class="text-info">Customer and Objectives</span>
                             </h4>
                         </div>
                         <div class="row my-1">
                             <div class="col-3">
-                                <label>Name</label>
+                                <label>Customer LastName</label>
                             </div>
                             <div class="col-9">
                                 <input asp-for="Customer.LastName" type="text" class="form-control" />
@@ -34,7 +34,7 @@
                         </div>
                         <div class="row my-1">
                             <div class="col-3">
-                                <label>SPeciality</label>
+                                <label>Customer Firstname</label>
                             </div>
                             <div class="col-9">
                                 <input asp-for="Customer.FirstName" type="text" class="form-control" />
@@ -43,7 +43,7 @@
                         </div>
                         <div class="row my-1">
                             <div class="col-3">
-                                <label>Customer Site</label>
+                                <label>Customer BirthDate</label>
                             </div>
                             <div class="col-9">
                                 <input asp-for="Customer.BirthDate" type="text" class="form-control" />
@@ -52,7 +52,7 @@
                         </div>
                         <div class="row my-1">
                             <div class="col-3">
-                                <label>Customer Site</label>
+                                <label>Customer Email</label>
                             </div>
                             <div class="col-9">
                                 <input asp-for="Customer.Email" type="text" class="form-control" />
@@ -61,7 +61,7 @@
                         </div>
                         <div class="row my-1">
                             <div class="col-3">
-                                <label>Customer Site</label>
+                                <label>Customer StartWeight</label>
                             </div>
                             <div class="col-9">
                                 <input asp-for="Customer.StartWeight" type="text" class="form-control" />
@@ -76,50 +76,85 @@
                         <ul class="list-group mb-3">
                             @foreach (var details in Model.ObjectiveList)
                             {
-                        <li class="list-group-item d-flex justify-content-between">
-                            <div>
-                                <p class="my-0">@details.Name</p>
-                            </div>
-                            <span class="text-muted">@details.Name</span>
-                        </li>
-                                        <li class="list-group-item d-flex justify-content-between">
-                                            <div>
-                                                <p class="my-0">@details.LostWeight</p>
-                                            </div>
-                                            <span class="text-muted">@details.LostWeight</span>
-                                        </li>
-                                                        <li class="list-group-item d-flex justify-content-between">
-                                                            <div>
-                                                                <p class="my-0">@details.LostWeight</p>
-                                                            </div>
-                                                            <span class="text-muted">@details.LostWeight</span>
-                                                        </li>
-                                                                        <li class="list-group-item d-flex justify-content-between">
-                                                                            <div>
-                                                                                <p class="my-0">@details.DistanceKm</p>
-                                                                            </div>
-                                                                            <span class="text-muted">@details.DistanceKm</span>
-                                                                        </li>
-                                                                                        <li class="list-group-item d-flex justify-content-between">
-                                                                                            <div>
-                                                                                                <p class="my-0">@details.AchievedDate</p>
-                                                                                            </div>
-                                                                                            <span class="text-muted">@details.AchievedDate</span>
-                                                                                        </li>}
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                            <p class="my-0">@details.Name</p>
+                                        </div>
+                                    @*<span class="text-muted">@details.Name</span>*@
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                            <p class="my-0">@details.LostWeight</p>
+                                        </div>
+                                    @*<span class="text-muted">@details.LostWeight</span>*@
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                            <p class="my-0">@details.LostWeight</p>
+                                        </div>
+                                    @*<span class="text-muted">@details.LostWeight</span>*@
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                            <p class="my-0">@details.DistanceKm</p>
+                                        </div>
+                                    @*<span class="text-muted">@details.DistanceKm</span>*@
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                            <p class="my-0">@details.AchievedDate</p>
+                                        </div>
+                                    @*<span class="text-muted">@details.AchievedDate</span>*@
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="col-12 col-lg-5 offset-lg-1">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-info">Customer ScheduledSession:</span>
+                        </h4>
+                        <ul class="list-group mb-3">
+                            @foreach (var details in Model.ScheduledSessionList)
+                            {
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                            <p class="my-0">@details.Description</p>
+                                        </div>
+                                    @*<span class="text-muted">@details.Description</span>*@
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                            <p class="my-0">@details.Date</p>
+                                        </div>
+                                    @*<span class="text-muted">@details.Date</span>*@
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                            <p class="my-0">@details.DurationMin</p>
+                                        </div>
+                                    @*<span class="text-muted">@details.DurationMin</span>*@
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                            <p class="my-0">@details.Training</p>
+                                        </div>
+                                    @*<span class="text-muted">@details.Training</span>*@
+                                </li>
+                                <!--<li class="list-group-item d-flex justify-content-between">-->
+                                @*<div>
+                                        <p class="my-0">@details.AchievedDate</p>
+                                    </div>*@
+                                <!--<span class="text-muted</span>
+
+                                </li>-->
+                            }
 
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card-footer">
-            <div class="row">
-                <div class="col-12 col-md-8 pt-2">
-                    <p style="color:maroon; font-size:14px;">The last book published at </p>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-</form>
+@*</form>*@

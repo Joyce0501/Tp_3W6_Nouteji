@@ -26,24 +26,23 @@ namespace JuliePro.Controllers
             _logger = logger;
             _webHostEnvironment = webHostEnvironment;
         }
-        public async Task<IActionResult> CustomerCard()
+        public async Task<IActionResult> Index()
         {
             IEnumerable<Customer> CustomerList = await _unitOfWork.Customer.GetAllAsync();
 
             return View(CustomerList);
         }
 
-        public async Task<IActionResult> Detail(int id)
+        public async Task<IActionResult> CustomerCard(int id)
         {
             CustomerVM CustomerVM = new CustomerVM()
             {
                 Customer = await _unitOfWork.Customer.FirstOrDefaultAsync(c => c.Id == id),
-                ObjectiveList = await _unitOfWork.Objective.GetAllAsync(o => o.Customer_Id == id, includeProperties: "Subject"),
-                ScheduledSessionList = await _unitOfWork.ScheduledSession.GetAllAsync(s => s.Customer_Id == id, includeProperties: "Subject")
+                ObjectiveList = await _unitOfWork.Objective.GetAllAsync(o => o.Customer_Id == id/*, includeProperties: "Objective"*/),
+                ScheduledSessionList = await _unitOfWork.ScheduledSession.GetAllAsync(s => s.Customer_Id == id, includeProperties: "Training")
             };
             return View(CustomerVM);
         }
     }
 
- 
 }
