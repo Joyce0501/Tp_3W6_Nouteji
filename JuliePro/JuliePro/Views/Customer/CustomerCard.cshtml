@@ -1,8 +1,5 @@
 ﻿@model JuliePro_Models.ViewModels.CustomerVM
 
-
-@*<form method="post">
-    <br />*@
     <div class="card pb-3">
         <div class="card-header pb-3 bg-dark text-light ml-0 row container">
             <div class="col-6">
@@ -43,7 +40,7 @@
                         </div>
                         <div class="row my-1">
                             <div class="col-3">
-                                <label>Customer BirthDate</label>
+                                <label>BirthDate</label>
                             </div>
                             <div class="col-9">
                                 <input asp-for="Customer.BirthDate" type="text" class="form-control" />
@@ -52,7 +49,7 @@
                         </div>
                         <div class="row my-1">
                             <div class="col-3">
-                                <label>Customer Email</label>
+                                <label>Email</label>
                             </div>
                             <div class="col-9">
                                 <input asp-for="Customer.Email" type="text" class="form-control" />
@@ -61,7 +58,7 @@
                         </div>
                         <div class="row my-1">
                             <div class="col-3">
-                                <label>Customer StartWeight</label>
+                                <label>StartWeight</label>
                             </div>
                             <div class="col-9">
                                 <input asp-for="Customer.StartWeight" type="text" class="form-control" />
@@ -76,36 +73,31 @@
                         <ul class="list-group mb-3">
                             @foreach (var details in Model.ObjectiveList)
                             {
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                            <p class="my-0">@details.Name</p>
-                                        </div>
-                                    @*<span class="text-muted">@details.Name</span>*@
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                            <p class="my-0">@details.LostWeight</p>
-                                        </div>
-                                    @*<span class="text-muted">@details.LostWeight</span>*@
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                            <p class="my-0">@details.LostWeight</p>
-                                        </div>
-                                    @*<span class="text-muted">@details.LostWeight</span>*@
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                            <p class="my-0">@details.DistanceKm</p>
-                                        </div>
-                                    @*<span class="text-muted">@details.DistanceKm</span>*@
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                            <p class="my-0">@details.AchievedDate</p>
-                                        </div>
-                                    @*<span class="text-muted">@details.AchievedDate</span>*@
-                                </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <label>Name</label>
+                                <div>
+                                    <p class="my-0">@details.Name</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <label>LostWeight</label>
+                                <div>
+                                    <p class="my-0">@details.LostWeight</p>
+                                </div>
+                            </li>
+                        
+                            <li class="list-group-item d-flex justify-content-between">
+                                <label>DistanceKm</label>
+                                <div>
+                                    <p class="my-0">@details.DistanceKm</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <label>AchievedDate</label>
+                                <div>
+                                    <p class="my-0">@details.AchievedDate</p>
+                                </div>
+                            </li>
                             }
 
                         </ul>
@@ -117,37 +109,31 @@
                         <ul class="list-group mb-3">
                             @foreach (var details in Model.ScheduledSessionList)
                             {
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                            <p class="my-0">@details.Description</p>
-                                        </div>
-                                    @*<span class="text-muted">@details.Description</span>*@
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                            <p class="my-0">@details.Date</p>
-                                        </div>
-                                    @*<span class="text-muted">@details.Date</span>*@
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                            <p class="my-0">@details.DurationMin</p>
-                                        </div>
-                                    @*<span class="text-muted">@details.DurationMin</span>*@
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                            <p class="my-0">@details.Training</p>
-                                        </div>
-                                    @*<span class="text-muted">@details.Training</span>*@
-                                </li>
-                                <!--<li class="list-group-item d-flex justify-content-between">-->
-                                @*<div>
-                                        <p class="my-0">@details.AchievedDate</p>
-                                    </div>*@
-                                <!--<span class="text-muted</span>
-
-                                </li>-->
+                            <li class="list-group-item d-flex justify-content-between">
+                                <label>Description</label>
+                                <div>
+                                    <p class="my-0">@details.Description</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <label>Date</label>
+                                <div>
+                                    <p class="my-0">@details.Date</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <label>DurationMin</label>
+                                <div>
+                                    <p class="my-0">@details.DurationMin</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <label>Training</label>
+                                <div>
+                                    <p class="my-0">@details.Training</p>
+                                </div>
+                            </li>
+                                
                             }
 
                         </ul>
@@ -157,4 +143,4 @@
         </div>
     </div>
 
-@*</form>*@
+

@@ -26,9 +26,9 @@ namespace JuliePro.Controllers
             _logger = logger;
             _webHostEnvironment = webHostEnvironment;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> CustomerTracking()
         {
-            IEnumerable<Customer> CustomerList = await _unitOfWork.Customer.GetAllAsync();
+            IEnumerable<Customer> CustomerList = await _unitOfWork.Customer.GetAllAsync(includeProperties: "Trainer");
 
             return View(CustomerList);
         }

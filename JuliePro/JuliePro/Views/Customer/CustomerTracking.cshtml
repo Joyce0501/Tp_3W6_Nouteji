@@ -1,0 +1,67 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+@model IEnumerable<JuliePro_Models.Models.Customer>
+<br />
+<br />
+<div class="border p-4 bg-white">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="text-info">The Customers</h2>
+        </div>
+        @*<div class=" col-2 text-right">
+            <a asp-controller="Customer" asp-action="CustomerCard" class="btn btn-info form-control"> Add a trainer </a>
+        </div>*@
+    </div>
+    <br />
+    <div>
+
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.Trainer.FirstName)
+                    </th>*@
+                </tr>
+
+                @*debut de la liste*@
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @item.FirstName
+                        </td>
+                        <td>
+                            @item.LastName
+                        </td>
+                        <td>
+                            @item.Email
+                        </td>
+                        @*<td>
+                            @item.Trainer.FirstName 
+                        </td>*@
+                        <td>
+                            <a class="btn btn-primary text-white" asp-controller="Customer" asp-action="CustomerCard" asp-route-Id="@item.Id"> Edit </a>
+                        </td>
+                    </tr>
+                }
+                @*Fin de la liste*@
+            </table>
+        }
+        @*else
+        {
+            <p>No Trainer exists.</p>
+        }*@
+
+    </div>
+</div>
