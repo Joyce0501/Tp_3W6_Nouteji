@@ -74,7 +74,7 @@ namespace JuliePro_DataAccess
             #endregion
 
             #region Données pour ScheduledSession
-            //builder.Entity<ScheduledSession>().HasData(new ScheduledSession() { Id = 1, Description = "", Date = new DateTime(2021, 11, 04, 19, 00, 00), DurationMin = 60, WithTrainer = false, Complete = false, CustomerId = 1, TrainingId = 1 });
+            builder.Entity<ScheduledSession>().HasData(new ScheduledSession() { Id = 1, Description = "", Date = new DateTime(2021, 11, 04, 19, 00, 00), DurationMin = 60, WithTrainer = false, Complete = false, Customer_Id = 1, Training_Id = 1 });
             #endregion
         }
     }

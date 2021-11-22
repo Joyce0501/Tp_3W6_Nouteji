@@ -109,31 +109,43 @@
                         <ul class="list-group mb-3">
                             @foreach (var details in Model.ScheduledSessionList)
                             {
-                            <li class="list-group-item d-flex justify-content-between">
-                                <label>Description</label>
-                                <div>
-                                    <p class="my-0">@details.Description</p>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between">
-                                <label>Date</label>
-                                <div>
-                                    <p class="my-0">@details.Date</p>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between">
-                                <label>DurationMin</label>
-                                <div>
-                                    <p class="my-0">@details.DurationMin</p>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between">
-                                <label>Training</label>
-                                <div>
-                                    <p class="my-0">@details.Training</p>
-                                </div>
-                            </li>
-                                
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <label>Description</label>
+                                    <div>
+                                        <p class="my-0">@details.Description</p>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <label>Date</label>
+                                    <div>
+                                        <p class="my-0">@details.Date</p>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <label>DurationMin</label>
+                                    <div>
+                                        <p class="my-0">@details.DurationMin</p>
+                                    </div>
+                                </li>
+                                @*<li class="list-group-item d-flex justify-content-between">
+                                    <label>Training</label>
+                                    <div>
+                                        <p class="my-0">@details.Training</p>
+                                    </div>
+                                </li>*@
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <label>With Trainer</label>
+                                    <div>
+                                        <p class="my-0">@details.WithTrainer</p>
+                                    </div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <label>Complete</label>
+                                    <div>
+                                        <p class="my-0">@details.Complete</p>
+                                    </div>
+                                </li>
+
                             }
 
                         </ul>

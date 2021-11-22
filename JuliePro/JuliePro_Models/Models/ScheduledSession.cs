@@ -30,15 +30,15 @@ namespace JuliePro_Models.Models
 
         public Boolean Complete { get; set; }
 
-        [ForeignKey("TrainerId")]
-        public int TrainingId { get; set; }
+        [ForeignKey("Training")]
+        public int Training_Id { get; set; }
 
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Training, propriété de navigation
         public Training Training { get; set; }
 
         [Display(Name = "Customer")]
-        [ForeignKey("CustomerId")]
-        public int CustomerId { get; set; }
+        [ForeignKey("Customer")]
+        public int Customer_Id { get; set; }
 
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Customer, propriété de navigation
         public Customer Customer { get; set; }

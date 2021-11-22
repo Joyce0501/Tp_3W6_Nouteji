@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JuliePro_DataAccess.Migrations
 {
-    public partial class test : Migration
+    public partial class Building : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -157,32 +157,23 @@ namespace JuliePro_DataAccess.Migrations
                     WithTrainer = table.Column<bool>(type: "bit", nullable: false),
                     Complete = table.Column<bool>(type: "bit", nullable: false),
                     Training_Id = table.Column<int>(type: "int", nullable: false),
-                    TrainingId = table.Column<int>(type: "int", nullable: true),
-                    Customer_Id = table.Column<int>(type: "int", nullable: false),
-                    CustomerId = table.Column<int>(type: "int", nullable: true),
-                    TrainingId1 = table.Column<int>(type: "int", nullable: true)
+                    Customer_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ScheduledSession", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ScheduledSession_Customer_CustomerId",
-                        column: x => x.CustomerId,
+                        name: "FK_ScheduledSession_Customer_Customer_Id",
+                        column: x => x.Customer_Id,
                         principalTable: "Customer",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ScheduledSession_Trainer_TrainingId",
-                        column: x => x.TrainingId,
-                        principalTable: "Trainer",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ScheduledSession_Training_TrainingId1",
-                        column: x => x.TrainingId1,
+                        name: "FK_ScheduledSession_Training_Training_Id",
+                        column: x => x.Training_Id,
                         principalTable: "Training",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -241,6 +232,11 @@ namespace JuliePro_DataAccess.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "ScheduledSession",
+                columns: new[] { "Id", "Complete", "Customer_Id", "Date", "Description", "DurationMin", "Training_Id", "WithTrainer" },
+                values: new object[] { 1, false, 1, new DateTime(2021, 11, 4, 19, 0, 0, 0, DateTimeKind.Unspecified), "", 60, 1, false });
+
+            migrationBuilder.InsertData(
                 table: "Trainer",
                 columns: new[] { "Id", "Biography", "Email", "FirstName", "LastName", "Photo", "SpecialityId" },
                 values: new object[,]
@@ -259,14 +255,14 @@ namespace JuliePro_DataAccess.Migrations
                 columns: new[] { "Equipment_Id", "Training_Id" },
                 values: new object[,]
                 {
-                    { 4, 1 },
-                    { 7, 1 },
-                    { 3, 2 },
-                    { 6, 2 },
-                    { 8, 2 },
-                    { 2, 3 },
                     { 5, 3 },
+                    { 2, 3 },
+                    { 8, 2 },
+                    { 4, 1 },
+                    { 3, 2 },
+                    { 7, 1 },
                     { 4, 3 },
+                    { 6, 2 },
                     { 1, 6 }
                 });
 
@@ -281,19 +277,14 @@ namespace JuliePro_DataAccess.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ScheduledSession_CustomerId",
+                name: "IX_ScheduledSession_Customer_Id",
                 table: "ScheduledSession",
-                column: "CustomerId");
+                column: "Customer_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ScheduledSession_TrainingId",
+                name: "IX_ScheduledSession_Training_Id",
                 table: "ScheduledSession",
-                column: "TrainingId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ScheduledSession_TrainingId1",
-                table: "ScheduledSession",
-                column: "TrainingId1");
+                column: "Training_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Trainer_SpecialityId",

@@ -208,9 +208,6 @@ namespace JuliePro_DataAccess.Migrations
                     b.Property<bool>("Complete")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Customer_Id")
                         .HasColumnType("int");
 
@@ -225,12 +222,6 @@ namespace JuliePro_DataAccess.Migrations
                     b.Property<int>("DurationMin")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TrainingId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TrainingId1")
-                        .HasColumnType("int");
-
                     b.Property<int>("Training_Id")
                         .HasColumnType("int");
 
@@ -239,13 +230,24 @@ namespace JuliePro_DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("Customer_Id");
 
-                    b.HasIndex("TrainingId");
-
-                    b.HasIndex("TrainingId1");
+                    b.HasIndex("Training_Id");
 
                     b.ToTable("ScheduledSession");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Complete = false,
+                            Customer_Id = 1,
+                            Date = new DateTime(2021, 11, 4, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "",
+                            DurationMin = 60,
+                            Training_Id = 1,
+                            WithTrainer = false
+                        });
                 });
 
             modelBuilder.Entity("JuliePro_Models.Models.Speciality", b =>
@@ -541,15 +543,15 @@ namespace JuliePro_DataAccess.Migrations
                 {
                     b.HasOne("JuliePro_Models.Models.Customer", "Customer")
                         .WithMany("ScheduledSessions")
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("Customer_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("JuliePro_Models.Models.Trainer", "Training")
-                        .WithMany()
-                        .HasForeignKey("TrainingId");
-
-                    b.HasOne("JuliePro_Models.Models.Training", null)
+                    b.HasOne("JuliePro_Models.Models.Training", "Training")
                         .WithMany("ScheduledSessions")
-                        .HasForeignKey("TrainingId1");
+                        .HasForeignKey("Training_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Customer");
 
