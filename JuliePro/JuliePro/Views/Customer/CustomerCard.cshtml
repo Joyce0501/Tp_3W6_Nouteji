@@ -72,7 +72,7 @@
                             <span class="text-info">Customer Objectives:</span>
                         </h4>
                         <ul class="list-group mb-3">
-                            @foreach (var details in Model.ObjectiveList)
+                            @foreach (var details in Model.ObjectiveList.OrderByDescending(o => o.Name))
                             {
                             <li class="list-group-item d-flex justify-content-between">
                                 <label>Name</label>
