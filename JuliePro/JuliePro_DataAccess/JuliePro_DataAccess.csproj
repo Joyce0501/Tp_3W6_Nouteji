@@ -17,8 +17,4 @@
     <ProjectReference Include="..\JuliePro_Models\JuliePro_Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

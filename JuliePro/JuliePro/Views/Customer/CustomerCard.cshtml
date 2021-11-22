@@ -7,8 +7,9 @@
                 Customer
             </div>
             <div class="col-4 text-right">
-                @*<a asp-controller="Publisher" asp-action="Index" class="btn btn-outline-info">Add an objective</a>*@
+                <a asp-controller="Objective" asp-action="Create" asp-route-id="@Model.Customer.Id" class="btn btn-outline-info">Add an objective</a>
             </div>
+
         </div>
         <div class="card-body">
             <div class="container rounded p-2">

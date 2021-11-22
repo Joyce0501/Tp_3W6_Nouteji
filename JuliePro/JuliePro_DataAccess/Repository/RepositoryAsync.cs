@@ -46,6 +46,30 @@ namespace JuliePro_DataAccess.Repository.IRepository
             return await query.FirstOrDefaultAsync();
         }
 
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null)
+        {
+            IQueryable<T> query = dbSet;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            if (includeProperties != null)
+            {
+                foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+
+            if (orderBy != null)
+            {
+                return orderBy(query).ToList();
+            }
+            return  query.ToList();
+        }
+
         public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null)
         {
             IQueryable<T> query = dbSet;
@@ -93,6 +117,11 @@ namespace JuliePro_DataAccess.Repository.IRepository
         public async Task RemoveRangeAsync(IEnumerable<T> entity)
         {
             dbSet.RemoveRange(entity);
+        }
+
+        public Task SaveAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

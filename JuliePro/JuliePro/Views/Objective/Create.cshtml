@@ -1,0 +1,65 @@
+﻿@model JuliePro_Models.ViewModels.ObjectiveVM;
+
+
+
+<div class="p-3 DivBgForm">
+    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+        <div class="row p-3 ">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-12 border-bottom container rounded p-2">
+                <input type="hidden" asp-for="Objective.Id" />
+                <input type="hidden" asp-for="Objective.Customer_Id" value="@Model.CustomerId" />
+
+            </div>
+
+            <div class="col-7 pt-2">
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Objective.Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Objective.Name" class="form-control" />
+                        <span asp-validation-for="Objective.Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Objective.LostWeight"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Objective.LostWeight" class="form-control" />
+                        <span asp-validation-for="Objective.LostWeight" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Objective.DistanceKm"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Objective.DistanceKm" class="form-control" />
+                        <span asp-validation-for="Objective.DistanceKm" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2">
+                        @*BUTTONS*@
+                        <partial name="_CreateBack" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+            $(document).ready(function () {
+            $('.summernote').summernote();
+
+          });</script>
+
+}

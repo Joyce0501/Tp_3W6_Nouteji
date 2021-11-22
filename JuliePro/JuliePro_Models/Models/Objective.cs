@@ -26,8 +26,7 @@ namespace JuliePro_Models.Models
         public Double DistanceKm { get; set; }
 
         [DataType(DataType.Date)]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
-        public DateTime AchievedDate { get; set; }
+        public DateTime? AchievedDate { get; set; }
 
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Customer
 

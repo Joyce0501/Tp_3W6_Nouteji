@@ -21,12 +21,12 @@ namespace JuliePro_Service
         }
         public IEnumerable<Objective> Objectives()
         {
-            return (IEnumerable<Objective>)_unitOfWork.Objective.GetAllAsync();
+            return _unitOfWork.Objective.GetAll();
         }
 
         public bool CreateObjective(Objective objectiveToCreate)
         {
-            if (Objectives().FirstOrDefault(o => o.AchievedDate == DateTime.MinValue && o.Customer_Id == objectiveToCreate.Customer_Id) != default)
+            if (Objectives().FirstOrDefault(o => o.AchievedDate == null && o.Customer_Id == objectiveToCreate.Customer_Id) != default)
                 return false;
             try
             {
