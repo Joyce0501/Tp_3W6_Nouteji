@@ -1,4 +1,5 @@
 ﻿using JuliePro_Models.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,8 @@ namespace JuliePro_Models.ViewModels
         public Customer Customer { get; set; }
         public IEnumerable<Objective> ObjectiveList { get; set; }
         public IEnumerable<ScheduledSession> ScheduledSessionList { get; set; }
+        public IEnumerable<Customer> Customers { get; set; }
+        public IEnumerable<Training> Trainings { get; set; }
+     
     }
 }

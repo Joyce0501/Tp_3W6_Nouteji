@@ -27,8 +27,8 @@ namespace JuliePro_DataAccess.Repository.IRepository
     Task RemoveAsync(int id);
     Task RemoveAsync(T entity);
     Task RemoveRangeAsync(IEnumerable<T> entity);
+    Task SaveAsync();
 
-
-}
+    }
  
 }
