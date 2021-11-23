@@ -19,10 +19,10 @@ namespace JuliePro.Controllers
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ScheduledSessionService _service;
 
-        public ScheduledSessionController(IUnitOfWork unitOfWork, ILogger<ObjectiveController> logger, IWebHostEnvironment webHostEnvironment)
+        public ScheduledSessionController(IUnitOfWork unitOfWork, ILogger<ScheduledSessionController> logger, IWebHostEnvironment webHostEnvironment)
         {
             _unitOfWork = unitOfWork;
-            //_logger = logger;
+            _logger = logger;
             _webHostEnvironment = webHostEnvironment;
             _service = new ScheduledSessionService( _unitOfWork);
         }
