@@ -1,6 +1,8 @@
-﻿@model JuliePro_Models.ViewModels.TrainerVM
+﻿@inject IViewLocalizer Localizer
+@model JuliePro_Models.ViewModels.TrainerVM
 @{ Layout = "~/Views/Shared/_Layout.cshtml";
-    var title = "Create a Trainer"; }
+    //var title = "Create a Trainer";
+}
 @using JuliePro.Utility;
 
 <div class="p-3 DivBgForm">
@@ -12,9 +14,9 @@
                 @if (Model.Trainer.Id > 0)
                 {
                     //Edit
-                    title = "Create a Trainer";
+                     @Locals["EditATrainer"];
                 }
-                <h2 class="text-primary">@title</h2>
+            <h2 class="text-primary"> @SharedLocals["AddATrainer"]</h2>
             </div>
 
             <div class="col-7 pt-2">
@@ -99,15 +101,15 @@
                     <div class="form-group row pt-1">
                         @if (Model.Trainer.Photo != null)
                         {
-                    <img src="@AppContants.ImagePathView@Model.Trainer.Photo" id="Trainer.Photo" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" /> }
+                            <img src="@AppContants.ImagePathView@Model.Trainer.Photo" id="Trainer.Photo" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" /> }
 
-                                @*else
-                                {
-                    <img src="@AppContants.ImagePathView@AppContants.ImagePath" id="Trainer.Photo" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
-                                    }*@
+                        @*else
+                                        {
+                            <img src="@AppContants.ImagePathView@AppContants.ImagePath" id="Trainer.Photo" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+                                            }*@
 
 
-                       @* <img src="@AppContants.ImagePathView@Model.Trainer.Photo" id="Trainer.Photo" height="450px" width="450px" alt="Picture of the trainer" />*@
+                        @* <img src="@AppContants.ImagePathView@Model.Trainer.Photo" id="Trainer.Photo" height="450px" width="450px" alt="Picture of the trainer" />*@
                     </div>
                 </div>
             </div>
@@ -116,12 +118,12 @@
 </div>
 
 @section Scripts{
-    <partial name="_ValidationScriptsPartial"  />
+    <partial name="_ValidationScriptsPartial" />
 
-        <script>
-            $(document).ready(function () {
+    <script>
+        $(document).ready(function () {
             $('.summernote').summernote();
 
-          });</script>
+        });</script>
 
 }

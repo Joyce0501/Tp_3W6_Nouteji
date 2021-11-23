@@ -1,9 +1,10 @@
-﻿@model int
+﻿@inject IViewLocalizer Localizer
+@model int
 <div class="row">
     <div class="col">
-        <button type="submit"  class="btn btn-primary form-control" asp-route-id="@Model"><i class="fas fa-edit"></i> Update </button>
+        <button type="submit" class="btn btn-primary form-control" asp-route-id="@Model"><i class="fas fa-edit"></i>@Locals["Edit"]</button>
     </div>
     <div class="col">
-        <a asp-action="Index" class="btn btn-success form-control"><i class="fas fa-arrow-left"></i> Back to List  </a>
+        <a asp-action="Index" class="btn btn-success form-control"><i class="fas fa-arrow-left"></i>@Locals["BackToList"]</a>
     </div>
 </div>

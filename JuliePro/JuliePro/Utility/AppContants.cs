@@ -10,5 +10,8 @@ namespace JuliePro.Utility
         // dossier images directement dans le Root
         public static string ImagePath = @"Trainers\";
         public static string ImagePathView = @"/Trainers/";
+
+        public const string Success = "Success";
+        public const string Error = "Error";
     }
 }

@@ -1,0 +1,20 @@
+﻿@using JuliePro.Utility
+
+@if (TempData[AppContants.Success] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+      toastr.success('@TempData[AppContants.Success]');
+    </script>
+}
+
+@if (TempData[AppContants.Error] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+  toastr.error('@TempData[AppContants.Error]');
+    </script>
+
+}

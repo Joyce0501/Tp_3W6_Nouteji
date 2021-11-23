@@ -1,4 +1,5 @@
-﻿@model JuliePro_Models.Models.Trainer
+﻿@inject IViewLocalizer Localizer
+@model JuliePro_Models.Models.Trainer
 @{ Layout = "~/Views/Shared/_Layout.cshtml";
     var title = "Delete a Trainer"; }
 @using JuliePro.Utility;
@@ -9,12 +10,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="col-12 border-bottom container rounded p-2">
                 <input type="hidden" asp-for="Id" />
-                @if (Model.Id > 0)
-                {
-                    //Edit
-                    title = "Delete a Trainer";
-                }
-                <h2 class="text-primary">@title</h2>
+               
+                <h2 class="text-primary">@Locals["RemoveATrainer"]</h2>
             </div>
 
             <div class="col-7 pt-2">

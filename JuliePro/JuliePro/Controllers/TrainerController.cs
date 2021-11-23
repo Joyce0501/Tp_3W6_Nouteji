@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -19,13 +20,18 @@ namespace JuliePro.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<TrainerController> _logger;
+        private readonly IStringLocalizer<HomeController> _localizer;
+        private readonly IStringLocalizer<SharedResource> _sharedLocalizer;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public TrainerController(IUnitOfWork unitOfWork, ILogger<TrainerController> logger,IWebHostEnvironment webHostEnvironment)
+        public TrainerController(IUnitOfWork unitOfWork, ILogger<TrainerController> logger,IWebHostEnvironment webHostEnvironment, IStringLocalizer<HomeController> localizer, IStringLocalizer<SharedResource> sharedLocalizer)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
             _webHostEnvironment = webHostEnvironment;
+            _localizer = localizer;
+            _sharedLocalizer = sharedLocalizer;
+
         }
         public async Task<IActionResult> Index()
         {
