@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace JuliePro_Service
 {
-    public class ScheduledSessionService /*:*/ /*IScheduledSessionService*/
+    public class ScheduledSessionService : IScheduledSessionService
     {
-        //private ModelStateDictionary _modelState;
+
         private readonly IUnitOfWork _unitOfWork;
 
-        public ScheduledSessionService(ModelStateDictionary modelState, IUnitOfWork unitOfWork)
+        public ScheduledSessionService( IUnitOfWork unitOfWork)
         {
-            //_modelState = modelState;
+
             _unitOfWork = unitOfWork;
         }
         public IEnumerable<ScheduledSession> scheduledSessions()
@@ -31,7 +31,7 @@ namespace JuliePro_Service
             try
             {
                 _unitOfWork.ScheduledSession.AddAsync(ScheduledSessionToCreate);
-                _unitOfWork.Objective.SaveAsync();
+                _unitOfWork.ScheduledSession.SaveAsync();
             }
             catch
             {
@@ -45,7 +45,7 @@ namespace JuliePro_Service
 
     public interface IScheduledSessionService
     {
-        bool CreateObjective(Objective objectiveToCreate);
+        bool CreateScheduledSession(ScheduledSession ScheduledSessionToCreate);
         IEnumerable<ScheduledSession> scheduledSessions();
     }
 

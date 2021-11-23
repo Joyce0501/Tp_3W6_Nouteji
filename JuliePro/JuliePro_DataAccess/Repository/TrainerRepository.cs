@@ -23,6 +23,7 @@ namespace JuliePro_DataAccess.Repository
             _db.Update(trainer);
 
         }
+
     }
 }
 

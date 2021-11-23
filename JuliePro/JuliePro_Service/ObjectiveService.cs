@@ -1,4 +1,4 @@
-﻿using JuliePro_DataAccess.Repository.IRepository;
+﻿ using JuliePro_DataAccess.Repository.IRepository;
 using JuliePro_Models.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;

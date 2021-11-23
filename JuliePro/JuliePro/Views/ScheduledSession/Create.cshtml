@@ -1,4 +1,4 @@
-﻿@model JuliePro_Models.ViewModels.ObjectiveVM;
+﻿@model JuliePro_Models.ViewModels.ScheduledSessionVM;
 
 
 
@@ -7,39 +7,39 @@
         <div class="row p-3 ">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="col-12 border-bottom container rounded p-2">
-                <input type="hidden" asp-for="Objective.Id" />
-                <input type="hidden" asp-for="Objective.Customer_Id" value="@Model.CustomerId" />
+                <input type="hidden" asp-for="ScheduledSession.Id" />
+                <input type="hidden" asp-for="ScheduledSession.Customer_Id" value="@Model.CustomerId" />
 
             </div>
 
             <div class="col-7 pt-2">
                 <div class="form-group row">
                     <div class="col-2">
-                        <label asp-for="Objective.Name"></label>
+                        <label asp-for="ScheduledSession.Complete"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="Objective.Name" class="form-control" />
-                        <span asp-validation-for="Objective.Name" class="text-danger"></span>
+                        <input asp-for="ScheduledSession.Complete" class="form-control" />
+                        <span asp-validation-for="ScheduledSession.Complete" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-2">
-                        <label asp-for="Objective.LostWeight"></label>
+                        <label asp-for="ScheduledSession.Date"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="Objective.LostWeight" class="form-control" />
-                        <span asp-validation-for="Objective.LostWeight" class="text-danger"></span>
+                        <input asp-for="ScheduledSession.Date" class="form-control" />
+                        <span asp-validation-for="ScheduledSession.Date" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-2">
-                        <label asp-for="Objective.DistanceKm"></label>
+                        <label asp-for="ScheduledSession.DurationMin"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="Objective.DistanceKm" class="form-control" />
-                        <span asp-validation-for="Objective.DistanceKm" class="text-danger"></span>
+                        <input asp-for="ScheduledSession.DurationMin" class="form-control" />
+                        <span asp-validation-for="ScheduledSession.DurationMin" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -53,6 +53,8 @@
                         <div class="col">
                             <a asp-controller="Customer" asp-action="CustomerTracking" class="btn btn-success form-control"><i class="fas fa-arrow-left"></i> Back to List </a>
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -70,3 +72,4 @@
           });</script>
 
 }
+

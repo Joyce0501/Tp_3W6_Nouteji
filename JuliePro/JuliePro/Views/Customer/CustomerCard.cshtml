@@ -107,8 +107,11 @@
                         <h4 class="d-flex justify-content-between align-items-center mb-3">
                             <span class="text-info">Customer ScheduledSession:</span>
                         </h4>
+                        <div @*class="col-4 text-right"*@>
+                            <a asp-controller="ScheduledSession" asp-action="Create" asp-route-id="@Model.Customer.Id" class="btn btn-outline-info">Add a schedulesession</a>
+                        </div>
                         <ul class="list-group mb-3">
-                            @foreach (var details in Model.ScheduledSessionList)
+                            @foreach (var details in Model.ScheduledSessionList.OrderByDescending(s => s.Date))
                             {
                                 <li class="list-group-item d-flex justify-content-between">
                                     <label>Description</label>
@@ -128,12 +131,7 @@
                                         <p class="my-0">@details.DurationMin</p>
                                     </div>
                                 </li>
-                                @*<li class="list-group-item d-flex justify-content-between">
-                                    <label>Training</label>
-                                    <div>
-                                        <p class="my-0">@details.Training</p>
-                                    </div>
-                                </li>*@
+
                                 <li class="list-group-item d-flex justify-content-between">
                                     <label>With Trainer</label>
                                     <div>
