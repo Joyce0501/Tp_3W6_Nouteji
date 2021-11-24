@@ -103,12 +103,12 @@ namespace JuliePro_DataAccess.Repository
         //    throw new NotImplementedException();
         //}
 
-        public void Remove(T entity)
+        public virtual void Remove(T entity)
         {
             dbset.Remove(entity);
         }
 
-        public void RemoveRange(IEnumerable<T> entity)
+        public virtual void RemoveRange(IEnumerable<T> entity)
         {
             // Supprimer plusieurs lignes en même temps
             dbset.RemoveRange(entity);

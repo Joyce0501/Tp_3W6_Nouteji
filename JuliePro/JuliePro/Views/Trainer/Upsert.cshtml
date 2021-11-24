@@ -11,12 +11,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="col-12 border-bottom container rounded p-2">
                 <input type="hidden" asp-for="Trainer.Id" />
+                <input type="hidden" asp-for="Trainer.Photo" />
                 @if (Model.Trainer.Id > 0)
                 {
                     //Edit
-                     @Locals["EditATrainer"];
+                    @Locals["EditATrainer"];
                 }
-            <h2 class="text-primary"> @SharedLocals["AddATrainer"]</h2>
+                <h2 class="text-primary"> @SharedLocals["AddATrainer"]</h2>
             </div>
 
             <div class="col-7 pt-2">

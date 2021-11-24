@@ -99,7 +99,7 @@ namespace JuliePro_DataAccess.Repository.IRepository
             return await dbSet.FindAsync(id);
         }
 
-        public async Task RemoveAsync(int id)
+        public virtual async Task RemoveAsync(int id)
         {
             T entity = await dbSet.FindAsync(id);
             await RemoveAsync(entity);
@@ -107,14 +107,14 @@ namespace JuliePro_DataAccess.Repository.IRepository
 
         // pas de Async pour Remove
         // structure utilisé pour garder standard et distinguer le Repo du Repo Async
-        public async Task RemoveAsync(T entity)
+        public virtual async Task RemoveAsync(T entity)
         {
             dbSet.Remove(entity);
         }
 
         // pas de Async pour RemoveRange
         // structure utilisé pour garder standard et distinguer le Repo du Repo Async
-        public async Task RemoveRangeAsync(IEnumerable<T> entity)
+        public virtual async Task RemoveRangeAsync(IEnumerable<T> entity)
         {
             dbSet.RemoveRange(entity);
         }

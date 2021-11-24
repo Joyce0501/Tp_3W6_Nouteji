@@ -20,11 +20,11 @@ namespace JuliePro_DataAccess.Repository
 
         public void Update(Trainer trainer)
         {
-            _db.Update(trainer);
+            _db.Update(trainer);  
 
         }
 
-        //public override void Remove (Trainer trainer)
+        //public override void Remove(Trainer trainer)
         //{
         //    trainer.Deleted = true;
         //    Update(trainer);
