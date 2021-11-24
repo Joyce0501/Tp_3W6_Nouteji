@@ -24,6 +24,11 @@ namespace JuliePro_DataAccess.Repository
 
         }
 
+        //public override void Remove (Trainer trainer)
+        //{
+        //    trainer.Deleted = true;
+        //    Update(trainer);
+        //}
     }
 }
 

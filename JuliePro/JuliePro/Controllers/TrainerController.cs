@@ -142,7 +142,9 @@ namespace JuliePro.Controllers
             {
                 //this is create
                 await _unitOfWork.Trainer.AddAsync(trainerVM.Trainer);
+                TempData[AppContants.Success] = "The trainer was created.";
                 _unitOfWork.Save();
+
 
                 //_unitOfWork.Trainer.Update(trainerVM.Trainer);
             }
@@ -152,12 +154,14 @@ namespace JuliePro.Controllers
                 //_unitOfWork.Trainer.AddAsync(trainerVM.Trainer);
 
                 _unitOfWork.Trainer.Update(trainerVM.Trainer);
+                TempData[AppContants.Success] = "The trainer was updated.";
                 _unitOfWork.Save();
             }
             _unitOfWork.Save();
             return RedirectToAction(nameof(Index));
+          
         }
-
+     
         public async Task<IActionResult> Delete(int? id)
         {
            

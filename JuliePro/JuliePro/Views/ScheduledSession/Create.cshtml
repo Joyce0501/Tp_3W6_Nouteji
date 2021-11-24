@@ -42,6 +42,17 @@
                         <span asp-validation-for="ScheduledSession.DurationMin" class="text-danger"></span>
                     </div>
                 </div>
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="ScheduledSession.Description"></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea asp-for="ScheduledSession.Description" class="form-control summernote"/></textarea>
+                        <span asp-validation-for="ScheduledSession.Description" class="text-danger"></span>
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <div class="col-8 offset-2">
                         @*BUTTONS*@
