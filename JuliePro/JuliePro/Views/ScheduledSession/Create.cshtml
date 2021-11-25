@@ -1,4 +1,5 @@
-﻿@model JuliePro_Models.ViewModels.ScheduledSessionVM;
+﻿
+@model JuliePro_Models.ViewModels.ScheduledSessionVM;
 
 
 
@@ -12,6 +13,7 @@
 
             </div>
 
+            <h1>Create a schedulesession</h1>
             <div class="col-7 pt-2">
                 <div class="form-group row">
                     <div class="col-2">
@@ -48,7 +50,7 @@
                         <label asp-for="ScheduledSession.Description"></label>
                     </div>
                     <div class="col-8">
-                        <textarea asp-for="ScheduledSession.Description" class="form-control summernote"/></textarea>
+                        <textarea asp-for="ScheduledSession.Description" class="form-control summernote" /></textarea>
                         <span asp-validation-for="ScheduledSession.Description" class="text-danger"></span>
                     </div>
                 </div>
@@ -77,10 +79,10 @@
     <partial name="_ValidationScriptsPartial" />
 
     <script>
-            $(document).ready(function () {
+        $(document).ready(function () {
             $('.summernote').summernote();
 
-          });</script>
+        });</script>
 
 }
 

@@ -17,7 +17,11 @@
                     //Edit
                     @Locals["EditATrainer"];
                 }
-                <h2 class="text-primary"> @SharedLocals["AddATrainer"]</h2>
+                else
+                {
+                  @SharedLocals["AddATrainer"];
+                }
+
             </div>
 
             <div class="col-7 pt-2">
@@ -62,12 +66,13 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-3">
-                        <label asp-for="Trainer.Speciality.Id"></label>
+                        <label asp-for="Trainer.Speciality"></label>
                     </div>
                     <div class="col-9">
                         @*ListBox speciality*@
                         @Html.DropDownListFor(s => s.Trainer.SpecialityId, Model.SpecialityList.OrderBy(s => s.Text), "-Select a Speciality",
-                      new { @class = "form-control" })
+                      new { @class = "form-control" , @style = "color:black"})
+                        <span asp-validation-for="Trainer.Speciality" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">

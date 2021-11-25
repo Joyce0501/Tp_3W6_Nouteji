@@ -105,32 +105,30 @@ namespace JuliePro.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Upsert(TrainerVM trainerVM)
         {
-            string webRootPath = _webHostEnvironment.WebRootPath; //Chemin des images de voyage: Travel
-            var files = HttpContext.Request.Form.Files; //nouvelle image récupérée
+            string webRootPath = _webHostEnvironment.WebRootPath; 
+            var files = HttpContext.Request.Form.Files; 
 
             if (files.Count > 0)
             {
-                string fileName = Guid.NewGuid().ToString();// Nom fichier généré, unique
-                var uploads = Path.Combine(webRootPath, AppContants.ImagePath);// chemin pour les images
-                var extenstion = Path.GetExtension(files[0].FileName); // extraire l'extension du fichier
+                string fileName = Guid.NewGuid().ToString();
+                var uploads = Path.Combine(webRootPath, AppContants.ImagePath);
+                var extenstion = Path.GetExtension(files[0].FileName);
 
                 if (trainerVM.Trainer.Photo != null)
                 {
-                    //L'image est modifiée: l'ancienne doit être supprimée
+             
                     var imagePath = Path.Combine(webRootPath, trainerVM.Trainer.Photo.TrimStart('\\'));
                     if (System.IO.File.Exists(imagePath))
                     {
                         System.IO.File.Delete(imagePath);
                     }
                 }
-                // Create un canal pour transférer le fichier 
+             
                 using (var filesStreams = new FileStream(Path.Combine(uploads, fileName + extenstion), FileMode.Create))
                 {
                     files[0].CopyTo(filesStreams);
                 }
-                // Composer le nom du fichier avec son extension qui sera enregister dans la BD
-                // avec le path relatif à partir du Root
-                // sans le path relatif (le path devra être ajouté dans la View)
+            
                trainerVM.Trainer.Photo = fileName + extenstion;
               
             }
@@ -146,12 +144,11 @@ namespace JuliePro.Controllers
                 _unitOfWork.Save();
 
 
-                //_unitOfWork.Trainer.Update(trainerVM.Trainer);
             }
             else
             {
                 //this is an update
-                //_unitOfWork.Trainer.AddAsync(trainerVM.Trainer);
+             
 
                 _unitOfWork.Trainer.Update(trainerVM.Trainer);
                 TempData[AppContants.Success] = "The trainer was updated.";
@@ -178,12 +175,6 @@ namespace JuliePro.Controllers
 
             return View(obj);
 
-            //Trainer trainer = await _unitOfWork.Trainer.FirstOrDefaultAsync(t => t.Id == id);
-            //if(trainer == null)
-            //{
-            //    return NotFound();
-            //}
-            //return View(trainer);
         }
 
         //POST DELETE

@@ -45,7 +45,6 @@ namespace JuliePro_Models.Models
         //OBLIGATOIRE Pour la relation 1 à plusieurs avec Customer
         public ICollection<Customer> Customers { get; set; }
 
-        //public bool Deleted;
 
 
     }
