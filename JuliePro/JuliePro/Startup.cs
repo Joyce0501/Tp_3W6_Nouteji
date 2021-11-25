@@ -36,13 +36,13 @@ namespace JuliePro
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddControllersWithViews().AddRazorRuntimeCompilation()
                     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-                    .AddDataAnnotationsLocalization()
+                    .AddDataAnnotationsLocalization();
 
-            .AddDataAnnotationsLocalization(options =>
-             {
-                 options.DataAnnotationLocalizerProvider = (type, factory) =>
-                     factory.Create(typeof(SharedResource));
-             });
+            //.AddDataAnnotationsLocalization(options =>
+            // {
+            //     options.DataAnnotationLocalizerProvider = (type, factory) =>
+            //         factory.Create(typeof(SharedResource));
+            // });
 
             services.Configure<RequestLocalizationOptions>(options =>
             {

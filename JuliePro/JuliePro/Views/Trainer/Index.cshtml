@@ -1,5 +1,4 @@
-﻿@inject IViewLocalizer Localizer
-@{ Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml";
    }
 @model IEnumerable<JuliePro_Models.Models.Trainer>
 <br />
@@ -10,7 +9,7 @@
             <h2 class="text-info">@Locals["TheTrainers"]</h2>
         </div>
         <div class=" col-2 text-right">
-            <a asp-controller="Trainer" asp-action="Upsert" class="btn btn-info form-control">  @SharedLocals["AddATrainer"] </a>
+            <a asp-controller="Trainer" asp-action="Upsert" class="btn btn-info form-control">  @Locals["AddATrainer"] </a>
         </div>
     </div>
     <br />
@@ -53,9 +52,9 @@
                             @item.Speciality.Name
                         </td>
                         <td>
-                            <a class="btn btn-primary text-white" asp-controller="Trainer" asp-action="Upsert" asp-route-Id="@item.Id"><i class="fas fa-edit"></i> @SharedLocals["Upsert"] </a>
-                            <a class="btn btn-info text-white" asp-controller="Trainer" asp-action="" asp-route-Id="@item.Id"> <i class="fas fa-info-circle"></i>@SharedLocals["Details"] </a>
-                            <a class="btn btn-danger text-white" asp-controller="Trainer" asp-action="Delete" asp-route-Id="@item.Id"><i class="fas fa-trash-alt"></i>  @SharedLocals["Delete"] </a>
+                            <a class="btn btn-primary text-white" asp-controller="Trainer" asp-action="Upsert" asp-route-Id="@item.Id"><i class="fas fa-edit"></i> @Locals["Upsert"] </a>
+                            <a class="btn btn-info text-white" asp-controller="Trainer" asp-action="" asp-route-Id="@item.Id"> <i class="fas fa-info-circle"></i>@Locals["Details"] </a>
+                            <a class="btn btn-danger text-white" asp-controller="Trainer" asp-action="Delete" asp-route-Id="@item.Id"><i class="fas fa-trash-alt"></i>  @Locals["Delete"] </a>
                         </td>
                     </tr>
                 }

@@ -120,10 +120,10 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
-  <data name="First Name" xml:space="preserve">
+  <data name="FirstName" xml:space="preserve">
     <value>Fisrt Name</value>
   </data>
-  <data name="Last Name" xml:space="preserve">
+  <data name="LastName" xml:space="preserve">
     <value>Last Name</value>
   </data>
   <data name="MaxLengthValidation" xml:space="preserve">

@@ -56,12 +56,23 @@
                 </div>
 
                 <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="ScheduledSession.Training"></label>
+                    </div>
+                    <div class="col-9">
+                        @Html.DropDownListFor(s => s.ScheduledSession.Training_Id, Model.TrainingList.OrderBy(s => s.Text), "-Select a Training",
+                      new { @class = "form-control", @style = "color:black" })
+                        <span asp-validation-for="ScheduledSession.Training" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <div class="col-8 offset-2">
                         @*BUTTONS*@
                         @*<partial name="_CreateBack" />*@
 
                         <div class="col">
-                            <button type="submit" class="btn btn-primary form-control" asp-route-id="@Model"><i class="fas fa-plus"></i> Create </button>
+                            <button type="submit" class="btn btn-primary form-control"  asp-action="Create" asp-route-id="@Model.CustomerId"><i class="fas fa-plus"></i> Create </button>
                         </div>
                         <div class="col">
                             <a asp-controller="Customer" asp-action="CustomerTracking" class="btn btn-success form-control"><i class="fas fa-arrow-left"></i> Back to List </a>

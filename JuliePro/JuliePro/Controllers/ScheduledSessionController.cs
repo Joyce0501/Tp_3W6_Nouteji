@@ -4,6 +4,7 @@ using JuliePro_Models.ViewModels;
 using JuliePro_Service;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -42,12 +43,19 @@ namespace JuliePro.Controllers
         {
             ScheduledSession scheduledSession = new ScheduledSession();
             Customer customer = await _unitOfWork.Customer.FirstOrDefaultAsync(c => c.Id == Id);
+            IEnumerable<Training> trainings = _unitOfWork.Training.GetAll();
 
             ScheduledSessionVM scheduledSessionVM = new ScheduledSessionVM()
             {
                 ScheduledSession = scheduledSession,
                 CustomerName = customer.FirstName + " " + customer.LastName,
-                CustomerId = Id
+                CustomerId = Id,
+                TrainingList = trainings.Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                })
+
 
             };
             return View(scheduledSessionVM);
@@ -63,7 +71,14 @@ namespace JuliePro.Controllers
             if (!_service.CreateScheduledSession(scheduledSession))
             {
                 // Ajouter à la BD
-                ModelState.AddModelError("", "Complete those ScheduledSessions first");
+                ModelState.AddModelError("", " those ScheduledSessions are enough ");
+                IEnumerable<Training> trainings = _unitOfWork.Training.GetAll();
+                scheduledSessionVM.TrainingList = trainings.Select(i => new SelectListItem
+                {
+                    Text = i.Name,
+                    Value = i.Id.ToString()
+                });
+
                 return View(scheduledSessionVM);
             }
             return RedirectToAction("CustomerCard", "Customer", new { Id = scheduledSessionVM.ScheduledSession.Customer_Id });

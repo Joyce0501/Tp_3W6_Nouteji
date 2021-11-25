@@ -31,9 +31,9 @@ namespace JuliePro_Service
             try
             {
                 _unitOfWork.ScheduledSession.AddAsync(ScheduledSessionToCreate);
-                _unitOfWork.ScheduledSession.SaveAsync();
+                _unitOfWork.Save();
             }
-            catch
+            catch(Exception e)
             {
                 return false;
             }

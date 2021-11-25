@@ -22,42 +22,42 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@Locals["Home"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@Locals["Privacy"]</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Trainer
+                                @Locals["Trainer"]
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Customer" asp-action="CustomerTracking">Tracking objectives and Session</a></li>
-                                <li><a class="dropdown-item">Tracking Training sessions</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Customer" asp-action="CustomerTracking"> @Locals["CreateObjTrack"]</a></li>
+                                @*<li><a class="dropdown-item">Tracking Training sessions</a></li>*@
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Trainer" asp-action="Index">Profile</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Trainer" asp-action="Index">@Locals["Profile"]</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Customer
+                                @Locals["Customer"]
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item">Training sessions</a></li>
-                                <li><a class="dropdown-item">Objective</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Trainer" asp-action="Filtrer">Our Trainer</a></li>
+                                @*<li><a class="dropdown-item">Training sessions</a></li>
+                                <li><a class="dropdown-item">Objective</a></li>*@
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Trainer" asp-action="Filtrer"> @Locals["OurTrainers"]</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Admin
+                                @Locals["Admin"] 
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Training" asp-action="Index">Training</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Equipment" asp-action="Index">Equipment</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Speciality" asp-action="Index">Speciality</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Training" asp-action="Index"> @Locals["Training"]</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Equipment" asp-action="Index"> @Locals["Equipment"]</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Speciality" asp-action="Index"> @Locals["Speciality"]</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Trainer" asp-action="Index">Manage Trainer</a></li>
                             </ul>

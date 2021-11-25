@@ -12,12 +12,12 @@ namespace JuliePro_Models.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "First Name")]
+        [Display(Name = "FirstName")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
         [StringLength(25, MinimumLength = 4, ErrorMessage = "StringLengthValidation")]
         public String FirstName { get; set; }
 
-        [Display(Name = "Last Name")]
+        [Display(Name = "LastName")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "RequiredValidation")]
         [StringLength(25, MinimumLength = 4, ErrorMessage = "StringLengthValidation")]
         public String LastName { get; set; }

@@ -120,7 +120,16 @@
   <data name="AddATrainer" xml:space="preserve">
     <value>Add a Trainer</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detail</value>
+  </data>
   <data name="TheTrainers" xml:space="preserve">
     <value>The Trainers</value>
+  </data>
+  <data name="Upsert" xml:space="preserve">
+    <value>Edit</value>
   </data>
 </root>

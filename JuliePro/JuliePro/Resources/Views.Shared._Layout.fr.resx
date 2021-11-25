@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
   <data name="CreateObjTrack" xml:space="preserve">
-    <value>Créer des objectifs et des tracking</value>
+    <value>Créer des objectifs et des sessions de  tracking</value>
   </data>
   <data name="Customer" xml:space="preserve">
     <value>Client</value>
@@ -128,6 +131,9 @@
   </data>
   <data name="Home" xml:space="preserve">
     <value>Accueil</value>
+  </data>
+  <data name="ManageTrainer" xml:space="preserve">
+    <value>Taches de l'entrainer</value>
   </data>
   <data name="ObjectiveScheduledSession" xml:space="preserve">
     <value>Objectifs et sesions d'entraînement</value>

@@ -120,7 +120,16 @@
   <data name="AddATrainer" xml:space="preserve">
     <value>Ajouter un entraîneur</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detail</value>
+  </data>
   <data name="TheTrainers" xml:space="preserve">
     <value>Les Entraîneurs</value>
+  </data>
+  <data name="Upsert" xml:space="preserve">
+    <value>Modifier</value>
   </data>
 </root>
