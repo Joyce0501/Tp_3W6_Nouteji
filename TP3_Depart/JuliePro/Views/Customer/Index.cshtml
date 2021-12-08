@@ -1,0 +1,41 @@
+@model JuliePro_Models.ViewModels.OurTrainersVM
+@using JuliePro_Utility;
+
+<div class="container">
+  <div class="row pb-4 DivBgForm">
+
+    @foreach (var trainer in Model.Trainers)
+    {
+<div class="container backgroundWhite pb-4">
+  <div class="card border">
+    <div class="card-header bg-dark text-light ml-0 row container">
+      <div class="col-12 col-md-6">
+        <h1 class="text-warning">@trainer.Speciality.Name</h1>
+      </div>
+      <div class="col-12 col-md-6 text-md-right">
+        <h1 class="text-warning">@trainer.FirstName</h1>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="container rounded p-2">
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <div class="row">
+              <div class="col-12">
+                <h3 style="color:#bbb9b9">À venir</h3>
+              </div>
+              <div class="col-12">
+                <textarea>@trainer.Biography</textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 text-center">
+            <img src="@AppConstants.PhotoPathTrainersView + @trainer.Photo;" class="card-img-top p-2 rounded" width="100%" alt="Picture of the trainer" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>}
+  </div>
+</div>

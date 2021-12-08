@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Trainer>
+<br />
+<br />
+<div class="border p-4 bg-white">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="text-info">The trainers</h2>
+        </div>
+        <div class=" col-2 text-right">
+          <a asp-controller="Trainer" asp-action="Upsert" class="btn btn-success">
+            <i class="far fa-plus-square"></i>&nbsp;Create trainer
+          </a>
+        </div>
+    </div>
+    <br />
+    <div>
+
+
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th>@Html.DisplayNameFor(Model => Model.FirstName)</th>
+                <th>@Html.DisplayNameFor(Model => Model.LastName)</th>
+                <th>@Html.DisplayNameFor(Model => Model.Email)</th>
+                <th>@Html.DisplayNameFor(Model => Model.Speciality.Name) </th>
+                <th></th>
+            </tr>
+            @*Début de la liste *@
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.FirstName
+                    </td>
+                    <td>
+                        @item.LastName
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        @item.Speciality.Name
+                    </td>
+                    <td>
+                      <a class="btn btn-primary text-white" asp-action="Upsert" asp-route-Id="@item.Id">
+                        <i class="fas fa-pen"></i>&nbsp; Edit
+                      </a>
+                      <a class="btn btn-info text-white" asp-action="Detail" asp-route-Id="@item.Id">
+                        <i class="fas fa-id-card"></i>&nbsp; Details
+                      </a>
+                      <a class="btn btn-danger text-white" asp-action="Delete" asp-route-Id="@item.Id">
+                        <i class="far fa-trash-alt"></i>&nbsp; Delete
+                      </a>
+                    </td>
+                </tr>
+            }
+            @*Fin de la liste *@
+        </table>
+    </div>
+</div>
+

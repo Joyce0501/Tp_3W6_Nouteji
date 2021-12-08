@@ -1,0 +1,92 @@
+﻿@model JuliePro_Models.ViewModels.CustomerVM
+
+<form method="post">
+  <br />
+
+  <div class="card pb-3">
+    <div class="card-header pb-3 bg-dark text-light ml-0 row container">
+      <div class="col-6">
+        <i class="fas fa-book"></i> &nbsp;
+        Publisher
+      </div>
+      <div class="col-4 text-right">
+        <a asp-controller="Publisher" asp-action="Index" class="btn btn-outline-info"><i class="fas fa-th-list"></i>&nbsp;Back to list</a>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="container rounded p-2">
+        <div class="row">
+          <div class="col-12 col-lg-6 pb-4">
+            <div class="row">
+
+              <h4 class="d-flex justify-content-between align-items-center">
+                <span class="text-info">Customer</span>
+              </h4>
+            </div>
+            <div class="row my-1">
+              <div class="col-3">
+                <label asp-for="Customer.FirstName"></label>
+              </div>
+              <div class="col-9">
+                <input asp-for="Customer.FirstName" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="row my-1">
+              <div class="col-3">
+                <label asp-for="Customer.LastName"></label>
+              </div>
+              <div class="col-9">
+                <input asp-for="Customer.LastName" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="row my-1">
+              <div class="col-3">
+                <label asp-for="Customer.StartWeight"></label>
+              </div>
+              <div class="col-9">
+                <input asp-for="Customer.StartWeight" type="text" class="form-control" />
+                <span asp-validation-for="Customer.StartWeight" class="text-danger"></span>
+              </div>
+            </div>
+            <div class="row my-1">
+              <div class="col-3">
+                <label asp-for="ActiveObjective.Name"></label>
+              </div>
+              <div class="col-9">
+                <input asp-for="ActiveObjective.Name" type="text" class="form-control" />
+                <span asp-validation-for="ActiveObjective.Name" class="text-danger"></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-5 offset-lg-1">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-info">Sheduled Sessions:</span>
+            </h4>
+            <ul class="list-group mb-3">
+             LISTE DES SHEDULEDSESSIONS
+                <li class="list-group-item d-flex justify-content-between">
+                  <div>
+                    <p class="my-0">DATE</p>
+                    <p class="my-0">TRAINING</p>
+                    <p class="my-0">TRAINING</p>
+                  </div>
+                 
+                </li>
+              }
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-12 col-md-8 pt-2">
+          <p style="color:maroon; font-size:14px;">Missed sessions: 99 </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</form>
