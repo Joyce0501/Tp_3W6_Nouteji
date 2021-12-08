@@ -12,5 +12,5 @@ namespace JuliePro_Models.ViewModels
     public Objective ActiveObjective { get; set; }
     public IEnumerable<ScheduledSession> SheduledSessionsList { get; set; }
     public IEnumerable<Objective> ObjectivessList { get; set; }
-}
+  }
 }

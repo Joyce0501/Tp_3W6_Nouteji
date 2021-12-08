@@ -43,5 +43,8 @@ namespace JuliePro_Models
     public bool Active { get; set; } = false;
 
     public virtual ICollection<Customer> Customers { get; set; }
+
+    public ICollection<TrainerCertification> TrainerCertifications { get; set; }
+
     }
 }

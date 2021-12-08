@@ -1,4 +1,5 @@
-﻿using JuliePro_Models;
+﻿using JuliePro_DataAccess.Repository.IRepository;
+using JuliePro_Models;
 using JuliePro_Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
@@ -19,16 +20,22 @@ namespace JuliePro.Controllers
 
         private readonly IStringLocalizer<HomeController> _localizer;
 
-        public HomeController(ILogger<HomeController>
-          logger, IStringLocalizer<HomeController> localizer)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public HomeController(ILogger<HomeController> logger, IStringLocalizer<HomeController> localizer, IUnitOfWork unitOfWork)
         {
             _logger = logger;
             _localizer = localizer;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            return View();
+            // MODIFICATION ICI 
+
+            IEnumerable<CalendarEvent> CalendarEventList = _unitOfWork.CalendarEvent.GetAll(includeProperties: "Category");
+
+            return View(CalendarEventList);
         }
 
         public IActionResult Privacy()

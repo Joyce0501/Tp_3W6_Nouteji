@@ -1,0 +1,39 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<CalendarEvent>
+
+    <div class="col-8">
+        <h2 class="text-info">Calendar Event</h2>
+    </div> 
+
+    <table class="table table-striped border">
+        <tr class="table-secondary">
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.CategoryName)
+            </th>
+        </tr>
+
+        @*debut de la liste*@
+
+        @foreach (var item in Model.OrderBy(c => c.Date).Take(3))
+        {
+            <tr>
+                <td>
+                    @item.Date
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.Category.CategoryName
+                </td>
+            </tr>
+        }
+        @*Fin de la liste*@
+    </table>

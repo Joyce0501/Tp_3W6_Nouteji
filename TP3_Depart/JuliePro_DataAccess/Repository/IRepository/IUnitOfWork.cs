@@ -28,6 +28,11 @@ namespace JuliePro_DataAccess.Repository.IRepository
 
         ICalendarEventRepository CalendarEvent { get; }
 
-    void Save();
+        ICertificationRepository Certification { get; }
+
+        ITrainerCertificationRepository TrainerCertification { get; }
+
+
+        void Save();
     }
 }

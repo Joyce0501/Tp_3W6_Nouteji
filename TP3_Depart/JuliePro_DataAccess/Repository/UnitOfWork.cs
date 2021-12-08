@@ -32,6 +32,10 @@ namespace JuliePro_DataAccess.Repository
 
         public ICalendarEventRepository CalendarEvent { get; private set; }
 
+        public ICertificationRepository Certification { get; private set; }
+
+        public ITrainerCertificationRepository TrainerCertification { get; private set; }
+
         public UnitOfWork(JulieProDbContext db)
         {
             _db = db;
@@ -43,6 +47,9 @@ namespace JuliePro_DataAccess.Repository
             Training = new TrainingRepository(_db);
             Equipment = new EquipmentRepository(_db);
             TrainingEquipment = new TrainingEquipmentRepository(_db);
+            Certification = new CertificationRepository(_db);
+            TrainerCertification = new TrainerCertificationRepository(_db);
+            CalendarEvent = new CalendarEventRepository(_db);
         }
 
         public void Dispose()

@@ -32,12 +32,18 @@ namespace JuliePro_DataAccess.Data
 
         public DbSet<CalendarEvent> Event { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<Certification> Certification { get; set; }
+
+        public DbSet<TrainerCertification> TrainerCertification { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<TrainingEquipment>().HasKey(te => new { te.Training_Id, te.Equipment_Id });
+            modelBuilder.Entity<TrainerCertification>().HasKey(tc => new { tc.Trainer_Id, tc.Certification_Id });
 
-          //Générer des données de départ
-          modelBuilder.GenerateData();
+
+            //Générer des données de départ
+            modelBuilder.GenerateData();
     }
   }
 }
