@@ -7,9 +7,9 @@
             <h2 class="text-info">The trainers</h2>
         </div>
         <div class=" col-2 text-right">
-          <a asp-controller="Trainer" asp-action="Upsert" class="btn btn-success">
-            <i class="far fa-plus-square"></i>&nbsp;Create trainer
-          </a>
+            <a asp-controller="Trainer" asp-action="Upsert" class="btn btn-success">
+                <i class="far fa-plus-square"></i>&nbsp;Create trainer
+            </a>
         </div>
     </div>
     <br />
@@ -41,15 +41,23 @@
                         @item.Speciality.Name
                     </td>
                     <td>
-                      <a class="btn btn-primary text-white" asp-action="Upsert" asp-route-Id="@item.Id">
-                        <i class="fas fa-pen"></i>&nbsp; Edit
-                      </a>
-                      <a class="btn btn-info text-white" asp-action="Detail" asp-route-Id="@item.Id">
-                        <i class="fas fa-id-card"></i>&nbsp; Details
-                      </a>
-                      <a class="btn btn-danger text-white" asp-action="Delete" asp-route-Id="@item.Id">
-                        <i class="far fa-trash-alt"></i>&nbsp; Delete
-                      </a>
+                        @if (this.User.IsInRole(AppConstants.SuperAdminRole))
+                        {
+                            <a class="btn btn-primary text-white" asp-action="Upsert" asp-route-Id="@item.Id">
+                                <i class="fas fa-pen"></i>&nbsp; Edit
+                            </a>
+                        }
+
+                        <a class="btn btn-info text-white" asp-action="Detail" asp-route-Id="@item.Id">
+                            <i class="fas fa-id-card"></i>&nbsp; Details
+                        </a>
+                        @if (this.User.IsInRole(AppConstants.SuperAdminRole))
+                        {
+                            <a class="btn btn-danger text-white" asp-action="Delete" asp-route-Id="@item.Id">
+                                <i class="far fa-trash-alt"></i>&nbsp; Delete
+                            </a>
+                        }
+
                     </td>
                 </tr>
             }

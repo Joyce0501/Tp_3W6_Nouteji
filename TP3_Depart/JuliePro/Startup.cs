@@ -1,4 +1,5 @@
 using JuliePro_DataAccess.Data;
+using JuliePro_DataAccess.Initializer;
 using JuliePro_DataAccess.Repository;
 using JuliePro_DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using JuliePro_DataAccess.Initializer;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -38,6 +40,7 @@ namespace JuliePro
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddControllersWithViews().AddRazorRuntimeCompilation()
                     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
@@ -52,18 +55,20 @@ namespace JuliePro
             services.AddDbContext<JulieProDbContext>(options =>
             options.UseSqlServer(
             Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<JulieProDbContext>();
+          
+
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<JulieProDbContext>().AddDefaultTokenProviders();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+        
 
             /* Activer après avoir configurer MSIdentity*/
-            //services.AddScoped<IDbInitializer, DbInitializer>();
+             services.AddScoped<IDbInitializer, DbInitializer>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(locOptions.Value);
@@ -87,8 +92,11 @@ namespace JuliePro
 
             app.UseAuthorization();
 
+            dbInitializer.Initialize();
+
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

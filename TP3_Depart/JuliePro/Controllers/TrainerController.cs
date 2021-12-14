@@ -2,6 +2,7 @@
 using JuliePro_Models;
 using JuliePro_Models.ViewModels;
 using JuliePro_Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace JuliePro.Controllers
 {
+   
     public class TrainerController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -24,14 +26,18 @@ namespace JuliePro.Controllers
             _webHostEnvironment = webHostEnvironment;
     }
 
+
+        [Authorize(Roles = AppConstants.SuperAdminRole + "," + AppConstants.TrainerRole)]
         public IActionResult Index()
         {
             IEnumerable<Trainer> listeTrainer = _unitOfWork.Trainer.GetAll(includeProperties:"Speciality");
             return View(listeTrainer);
         }
 
-    //GET - UPSERT
-    public IActionResult Upsert(int? id)
+        //GET - UPSERT
+
+        [Authorize(Roles = AppConstants.SuperAdminRole)]
+        public IActionResult Upsert(int? id)
     {
       IEnumerable<Speciality> SpecialityList =  _unitOfWork.Speciality.GetAll();
       TrainerVM trainerVM = new TrainerVM()
@@ -58,8 +64,9 @@ namespace JuliePro.Controllers
 
     }
 
-    //POST - UPSERT
-    [HttpPost]
+        //POST - UPSERT
+        [Authorize(Roles = AppConstants.SuperAdminRole)]
+        [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Upsert(TrainerVM trainerVM)
     {
@@ -125,8 +132,10 @@ namespace JuliePro.Controllers
       return View(trainerVM);
     }
 
-    //GET DELETE
-    public IActionResult Delete(int? id)
+        //GET DELETE
+
+        [Authorize(Roles = AppConstants.SuperAdminRole)]
+        public IActionResult Delete(int? id)
     {
       if (id == null || id == 0)
       {
@@ -142,8 +151,10 @@ namespace JuliePro.Controllers
       return View(obj);
     }
 
-    //POST DELETE
-    [HttpPost]
+        //POST DELETE
+
+        [Authorize(Roles = AppConstants.SuperAdminRole)]
+        [HttpPost]
     [AutoValidateAntiforgeryToken]
     public IActionResult DeletePost(int? id)
     {
