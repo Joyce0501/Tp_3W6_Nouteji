@@ -1,4 +1,5 @@
 ﻿using JuliePro_Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JuliePro_DataAccess.Data
 {
-    public class JulieProDbContext : DbContext
+    public class JulieProDbContext : IdentityDbContext
     {
         public JulieProDbContext(DbContextOptions<JulieProDbContext> options) : base(options) { }
 
@@ -38,6 +39,9 @@ namespace JuliePro_DataAccess.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Corriger Erreur lors de la migration: IdentityUserLogin
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<TrainingEquipment>().HasKey(te => new { te.Training_Id, te.Equipment_Id });
             modelBuilder.Entity<TrainerCertification>().HasKey(tc => new { tc.Trainer_Id, tc.Certification_Id });
 

@@ -4,6 +4,7 @@ using JuliePro_DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -51,6 +52,9 @@ namespace JuliePro
             services.AddDbContext<JulieProDbContext>(options =>
             options.UseSqlServer(
             Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<JulieProDbContext>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
@@ -78,6 +82,8 @@ namespace JuliePro
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
