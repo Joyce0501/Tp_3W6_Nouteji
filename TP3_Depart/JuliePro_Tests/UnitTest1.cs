@@ -36,7 +36,7 @@ namespace JuliePro_Tests
 
             // Teste si ca delete ensuite retourne a la vue index
 
-            //Trainer untrainer = new Trainer();
+            Trainer untrainer = new Trainer();
 
             //using (var context = new JulieProDbContext(options))
             //{
@@ -56,11 +56,16 @@ namespace JuliePro_Tests
 
                 //Assert.AreEqual("Index", result.ViewName);
 
+                //dynamic result = controller.Index();
+                //Assert.AreEqual("Index", result.ViewName);
+
                 var repository = new TrainerRepository(context);
 
                 repository.Remove(unitofwork.Trainer.FirstOrDefault());
 
-                dynamic result = controller.Index();
+                unitofwork.Trainer.Remove(untrainer);
+
+                dynamic result = controller.Delete(untrainer.Id);
 
                 Assert.AreEqual("Index", result.ViewName);
 
