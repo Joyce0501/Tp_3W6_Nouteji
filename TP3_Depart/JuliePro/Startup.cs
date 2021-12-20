@@ -56,6 +56,8 @@ namespace JuliePro
             options.UseSqlServer(
             Configuration.GetConnectionString("DefaultConnection")));
           
+            // le prof a juste n"a pas le "AddDefaultTokenProviders"
+
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<JulieProDbContext>().AddDefaultTokenProviders();
 
