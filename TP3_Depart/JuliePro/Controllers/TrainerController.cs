@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace JuliePro.Controllers
 {
-   
+    [Authorize(Roles = AppConstants.SuperAdminRole + "," + AppConstants.TrainerRole)]
     public class TrainerController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

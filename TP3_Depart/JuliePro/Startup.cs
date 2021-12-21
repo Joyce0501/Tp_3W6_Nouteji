@@ -59,7 +59,7 @@ namespace JuliePro
             // le prof a juste n"a pas le "AddDefaultTokenProviders"
 
 
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<JulieProDbContext>().AddDefaultTokenProviders();
+            services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders().AddDefaultUI().AddEntityFrameworkStores<JulieProDbContext>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
