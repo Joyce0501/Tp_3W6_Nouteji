@@ -6,6 +6,7 @@ using JuliePro_Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 using NUnit.Framework;
 using System.Linq;
 
@@ -15,20 +16,15 @@ namespace JuliePro_Tests
   {
         private DbContextOptions<JulieProDbContext> options;
 
-        private readonly IWebHostEnvironment _webHostEnvironment;
-
-        public Tests(IWebHostEnvironment webHostEnvironment)
-        {
-            _webHostEnvironment = webHostEnvironment;
-        }
+        private Mock<IWebHostEnvironment> _webHostEnvironment;
 
         [SetUp]
         public void Setup()
     {
+            _webHostEnvironment = new Mock<IWebHostEnvironment>();
             options = new DbContextOptionsBuilder<JulieProDbContext>()
           .UseInMemoryDatabase(databaseName: "JuliePro_MasterTP3").Options;
-
-    }
+        }
 
     [Test]
     public void DeleteToIndex()
@@ -38,36 +34,29 @@ namespace JuliePro_Tests
 
             Trainer untrainer = new Trainer();
 
-            //using (var context = new JulieProDbContext(options))
-            //{
-            //var repository = new TrainerRepository(context);
-            //repository.Remove(untrainer);
-            //    Assert.AreEqual(0, repository.GetAll().Count());
-            //}
+            untrainer.Email = "Landry@google.ca";
+            untrainer.FirstName = "Landry";
+            untrainer.LastName = "Heyyyooo";
 
             using (var context = new JulieProDbContext(options))
             {
+
                 context.Database.EnsureDeleted();
+
                 UnitOfWork unitofwork = new UnitOfWork(context);
 
-                TrainerController controller = new TrainerController(unitofwork, _webHostEnvironment);
+                TrainerController controller = new TrainerController(unitofwork, _webHostEnvironment.Object);
 
-                //ViewResult result = controller.Index() as ViewResult;
-
-                //Assert.AreEqual("Index", result.ViewName);
-
-                //dynamic result = controller.Index();
-                //Assert.AreEqual("Index", result.ViewName);
-
+ 
                 var repository = new TrainerRepository(context);
 
-                repository.Remove(unitofwork.Trainer.FirstOrDefault());
+                repository.Add(untrainer);
 
-                unitofwork.Trainer.Remove(untrainer);
+                repository.Save();
 
-                dynamic result = controller.Delete(untrainer.Id);
+                var result = (RedirectToActionResult)controller.DeletePost(untrainer.Id);
 
-                Assert.AreEqual("Index", result.ViewName);
+                Assert.AreEqual("Index", result.ActionName);
 
 
 

@@ -20,7 +20,7 @@ namespace JuliePro_DataAccess.Repository
 
     public  IEnumerable<Trainer> GetAllActive()
     {
-      return  base.GetAll(filter: b => b.Active == true, includeProperties: "Speciality");
+      return  base.GetAll(filter: b => b.Active == true);
     }
 
     public void Update(Trainer trainer)
